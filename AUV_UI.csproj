@@ -158,7 +158,6 @@
     <None Include="Motor_Testi\Test_Gonder.py" />
     <None Include="Motor_Testi\TestMotor.py" />
     <None Include="img\kapsul.png" />
-    <None Include="Motor_Testi_RT\TestMotorRT.py" />
     <None Include="img\arrow.png" />
     <None Include="img\conf.png" />
     <None Include="img\MPU6050.png" />
@@ -178,6 +177,7 @@
     <None Include="img\github.png" />
     <None Include="img\sauvc.png" />
     <None Include="img\daftpunktocat-guy.gif" />
+    <None Include="Motor_Testi_RT\Telem.txt" />
     <Content Include="MYS_Logooicon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

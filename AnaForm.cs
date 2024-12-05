@@ -136,7 +136,6 @@ namespace AUV_UI
                     komutu_calistir.Enabled = true;
                     alincak.Enabled = true;
                     baglan.Enabled = false;
-                    //SicaklikOku.Enabled = true;
                     Dosya_Yolu_Degistir.Enabled = true;
 
                     shell_Baglan();
@@ -172,8 +171,27 @@ namespace AUV_UI
                         {
                             Invoke(new Action(() =>
                             {
+                                Match match;
+                                match = Regex.Match(output, @"C(\d+)C");
+                                if (match.Success)
+                                {
+                                    terminal.AppendText(Environment.NewLine + "islem kodu " + match.Groups[1].Value + Environment.NewLine);
+                                    currentProcessId = match.Groups[1].Value;
+                                    islemi_Durdur.Enabled = true;
+                                    komutu_calistir.Enabled = false;
+                                }
+
+                                int startIndex = output.IndexOf("Done");
+                                if (startIndex != -1)
+                                {
+                                    islemi_Durdur.Enabled = false;
+                                    komutu_calistir.Enabled = true;
+                                    terminal.AppendText(Environment.NewLine + "İşlem Bitti" + Environment.NewLine);
+                                }
+
+
                                 terminal.AppendText(output + Environment.NewLine);
-                                //if (output == "%bitti%") { islemi_Durdur.Enabled = false; komutu_calistir.Enabled = true; }
+                                
                             }));
                         }
                     }
@@ -297,37 +315,7 @@ namespace AUV_UI
         {
             try
             {
-                if (komut_satiri.Text.EndsWith(".py") || komut_satiri.Text.EndsWith(".py & echo $!"))
-                {
-                    if (komut_satiri.Text.EndsWith(" & echo $!"))
-                    {
-                        shellStream.WriteLine(komut_satiri.Text.Substring(0, komut_satiri.Text.Length));
-                    }
-                    else
-                    {
-                        shellStream.WriteLine(komut_satiri.Text.Substring(0, komut_satiri.Text.Length) + " & echo $!");
-                    }
-                    string output;
-                    Match match;
-
-                    while (true)
-                    {
-                        output = shellStream.ReadLine() + "\n";
-                        match = Regex.Match(output, @"%(\d+)%");
-                        if (match.Success)
-                        {
-                            terminal.AppendText("islem kodu" + match.Groups[1].Value + Environment.NewLine);
-                            currentProcessId = match.Groups[1].Value;
-                            break;
-                        }
-                    }
-                    islemi_Durdur.Enabled = true;
-                    komutu_calistir.Enabled = false;
-                }
-                else
-                {
-                    shellStream.WriteLine(komut_satiri.Text);
-                }
+                shellStream.WriteLine(komut_satiri.Text + " & echo C$!C; wait $!"); 
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }            
         }
@@ -377,7 +365,6 @@ namespace AUV_UI
             }
             catch (Exception ex)
             {
-                // Hata durumunda kullanıcıya mesaj göster
                 MessageBox.Show("Bağlantı açılamadı: " + ex.Message);
             }
         }

@@ -67,6 +67,10 @@ namespace AUV_UI
             trackBar6.Value = 1500;
             trackBar7.Value = 1500;
             trackBar8.Value = 1500;
+            trackBar9.Value = 1500;
+            trackBar10.Value = 1500;
+            trackBar11.Value = 1500;
+            trackBar12.Value = 1500;
 
             degeratama();
         }
@@ -81,6 +85,10 @@ namespace AUV_UI
             M6Value.Text = Convert.ToString(trackBar6.Value);
             M7Value.Text = Convert.ToString(trackBar7.Value);
             M8Value.Text = Convert.ToString(trackBar8.Value);
+            M9Value.Text = Convert.ToString(trackBar9.Value);
+            M10Value.Text = Convert.ToString(trackBar10.Value);
+            M11Value.Text = Convert.ToString(trackBar11.Value);
+            M12Value.Text = Convert.ToString(trackBar12.Value);
         }
 
         public void degeratama_yenileme()
@@ -93,11 +101,7 @@ namespace AUV_UI
         {
             try
             {
-                byte[] TestMotorRTSayisal = Encoding.UTF8.GetBytes(Properties.Resources.TestMotorSayisalRT);
-                using (var memoryStream = new MemoryStream(TestMotorRTSayisal))
-                {
-                    Ana.RaspiSFTPClient.UploadFile(memoryStream, Path.Combine(Ana.raspi_dosya_yolu_Gonder, "TestMotorSayisalRT.py"));
-                }
+
             }
             catch(Exception ex){ MessageBox.Show(ex.Message); }            
         }
@@ -112,21 +116,33 @@ namespace AUV_UI
                 MTPB.BackColor = Color.Blue;
                 try
                 {
-                    byte[] TestMotorRTbyte = Properties.Resources.TestMotorRT;
-                    using (var memoryStream = new MemoryStream(TestMotorRTbyte))
+                    //byte[] Telem = Encoding.UTF8.GetBytes(Properties.Resources.Telem.ToString());
+                    //LogWiever gosterici = new LogWiever(Properties.Resources.Telem);
+                    //gosterici.ShowDialog();
+                    //using (var memoryStream = new MemoryStream(Telem))
+                    //{
+                    //    Ana.RaspiSFTPClient.ChangeDirectory(Ana.raspi_dosya_yolu_Gonder);
+                    //    Ana.RaspiSFTPClient.UploadFile(memoryStream, "Telem.py");
+                    //    Ana.terminal.Text += "Telem.py" + " dosyası;" + Environment.NewLine + Ana.raspi_dosya_yolu_Gonder + " adresine yüklendi" + Environment.NewLine;
+                    //}
+
+                    byte[] telem = Encoding.UTF8.GetBytes(Properties.Resources.Telem);
+                    using (var memoryStream = new MemoryStream(telem))
                     {
-                        Ana.RaspiSFTPClient.UploadFile(memoryStream, Path.Combine(Ana.raspi_dosya_yolu_Gonder, "TestMotorRT.py"));
-                        Ana.terminal.Text += "TestMotorRT.py" + " dosyası;" + Environment.NewLine + Ana.raspi_dosya_yolu_Gonder + " adresine yüklendi" + Environment.NewLine;
-                    }                    
+                        Ana.RaspiSFTPClient.ChangeDirectory(Ana.raspi_dosya_yolu_Gonder);
+                        Ana.RaspiSFTPClient.UploadFile(memoryStream, Path.GetFileName("Telem.py"));
+                        Ana.terminal.Text += "Telem.py" + " dosyası;" + Environment.NewLine + Ana.raspi_dosya_yolu_Gonder + " adresine yüklendi" + Environment.NewLine;
+                    }
 
                     byte[] TestMotorSayisalRTbyte = Encoding.UTF8.GetBytes(Properties.Resources.TestMotorSayisalRT);
                     using (var memoryStream = new MemoryStream(TestMotorSayisalRTbyte))
                     {
-                        Ana.RaspiSFTPClient.UploadFile(memoryStream, Path.Combine(Ana.raspi_dosya_yolu_Gonder, "TestMotorSayisalRT.py"));
-                        Ana.terminal.Text += "TestMotorSayisalRT.py" + " dosyası;" + Environment.NewLine + Ana.raspi_dosya_yolu_Gonder + " adresine yüklendi" + Environment.NewLine;
+                        Ana.RaspiSFTPClient.ChangeDirectory(Ana.raspi_dosya_yolu_Gonder);
+                        Ana.RaspiSFTPClient.UploadFile(memoryStream, Path.GetFileName("TestMotorSayisalRT.txt"));
+                        Ana.terminal.Text += "TestMotorSayisalRT.txt" + " dosyası;" + Environment.NewLine + Ana.raspi_dosya_yolu_Gonder + " adresine yüklendi" + Environment.NewLine;
                     }
 
-                    Ana.shellStream.WriteLine("python Desktop/TestMotorRT.py");
+                    Ana.shellStream.WriteLine("python Desktop/Telem.py & echo $!");
                     string output;
                     Match match;
 
@@ -158,34 +174,24 @@ namespace AUV_UI
             }
         }
 
-        private void trackBar8_Scroll(object sender, EventArgs e)
+        private void trackBar12_Scroll(object sender, EventArgs e)
         {
-
+            degeratama();
         }
 
-        private void trackBar16_Scroll(object sender, EventArgs e)
+        private void trackBar11_Scroll(object sender, EventArgs e)
         {
-
+            degeratama();
         }
 
-        private void trackBar15_Scroll(object sender, EventArgs e)
+        private void trackBar10_Scroll(object sender, EventArgs e)
         {
-
+            degeratama();
         }
 
-        private void trackBar14_Scroll(object sender, EventArgs e)
+        private void trackBar9_Scroll(object sender, EventArgs e)
         {
-
-        }
-
-        private void trackBar13_Scroll(object sender, EventArgs e)
-        {
-
-        }
-
-        private void telemetry_Click(object sender, EventArgs e)
-        {
-
+            degeratama();
         }
     }
 }

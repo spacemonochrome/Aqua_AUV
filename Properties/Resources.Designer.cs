@@ -331,6 +331,38 @@ namespace AUV_UI.Properties {
         }
         
         /// <summary>
+        ///   import time
+        ///import os
+        ///import threading
+        ///import serial
+        ///import smbus
+        ///import subprocess
+        ///
+        ///dogrulamabyti = 95
+        ///durmasarti = False
+        ///TxSpwm = [25,25,25,25]
+        ///TxMotorverisi = [125,125,125,125,125,125,125,125]
+        ///MotorDeger = [125,125,125,125,125,125,125,125]
+        ///
+        ///TxData = [None]
+        ///RxData = [None]
+        ///
+        ///telemetri = [None,None,None, None,None,None, None,None,None, None,None,None, None,None,None]
+        ///#Ax, Ay, Az, Gx, Gy, Gz, Px, Py, Pz, Cpi, Cstm, Cmpu
+        ///
+        ///
+        ///bus = smbus.SMBus(1)
+        ///
+        ///ser = serial.Serial(
+        ///        port=&apos;/dev/tt [dizenin kalan bölümü kesildi]&quot;; benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        public static string Telem {
+            get {
+                return ResourceManager.GetString("Telem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
         public static byte[] Test_Gonder {
@@ -346,16 +378,6 @@ namespace AUV_UI.Properties {
         public static byte[] TestMotor {
             get {
                 object obj = ResourceManager.GetObject("TestMotor", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
-        /// </summary>
-        public static byte[] TestMotorRT {
-            get {
-                object obj = ResourceManager.GetObject("TestMotorRT", resourceCulture);
                 return ((byte[])(obj));
             }
         }

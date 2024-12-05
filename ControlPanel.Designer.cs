@@ -72,19 +72,18 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.trackBar13 = new System.Windows.Forms.TrackBar();
-            this.trackBar14 = new System.Windows.Forms.TrackBar();
-            this.trackBar15 = new System.Windows.Forms.TrackBar();
-            this.trackBar16 = new System.Windows.Forms.TrackBar();
+            this.M9Value = new System.Windows.Forms.TextBox();
+            this.M10Value = new System.Windows.Forms.TextBox();
+            this.M11Value = new System.Windows.Forms.TextBox();
+            this.M12Value = new System.Windows.Forms.TextBox();
+            this.trackBar9 = new System.Windows.Forms.TrackBar();
+            this.trackBar10 = new System.Windows.Forms.TrackBar();
+            this.trackBar11 = new System.Windows.Forms.TrackBar();
+            this.trackBar12 = new System.Windows.Forms.TrackBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Gyro = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Accel = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.telemetry = new System.Windows.Forms.Button();
             this.Pusula = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.sicaklik = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar7)).BeginInit();
@@ -96,10 +95,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Gyro)).BeginInit();
@@ -213,7 +212,7 @@
             // 
             this.Zero.BackColor = System.Drawing.SystemColors.Control;
             this.Zero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Zero.Location = new System.Drawing.Point(26, 329);
+            this.Zero.Location = new System.Drawing.Point(26, 376);
             this.Zero.Name = "Zero";
             this.Zero.Size = new System.Drawing.Size(97, 32);
             this.Zero.TabIndex = 112;
@@ -226,11 +225,12 @@
             this.MTPB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.MTPB.Location = new System.Drawing.Point(26, 265);
             this.MTPB.Name = "MTPB";
-            this.MTPB.Size = new System.Drawing.Size(97, 59);
+            this.MTPB.Size = new System.Drawing.Size(97, 88);
             this.MTPB.TabIndex = 111;
             this.MTPB.Tag = "T";
-            this.MTPB.Text = "Motor Test Panelini Başlat";
+            this.MTPB.Text = "Kontrol ve Telemetriyi Başlat";
             this.MTPB.UseVisualStyleBackColor = false;
+            this.MTPB.Click += new System.EventHandler(this.MTPB_Click);
             // 
             // M6Value
             // 
@@ -398,7 +398,6 @@
             this.trackBar8.TickFrequency = 25;
             this.trackBar8.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.trackBar8.Value = 1500;
-            this.trackBar8.Scroll += new System.EventHandler(this.trackBar8_Scroll);
             // 
             // M8Value
             // 
@@ -465,101 +464,101 @@
             this.label11.TabIndex = 139;
             this.label11.Text = "M1";
             // 
-            // textBox6
+            // M9Value
             // 
-            this.textBox6.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox6.Location = new System.Drawing.Point(981, 186);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(63, 20);
-            this.textBox6.TabIndex = 132;
-            this.textBox6.Text = "1500";
+            this.M9Value.BackColor = System.Drawing.SystemColors.Control;
+            this.M9Value.Location = new System.Drawing.Point(981, 186);
+            this.M9Value.Name = "M9Value";
+            this.M9Value.ReadOnly = true;
+            this.M9Value.Size = new System.Drawing.Size(63, 20);
+            this.M9Value.TabIndex = 132;
+            this.M9Value.Text = "1500";
             // 
-            // textBox7
+            // M10Value
             // 
-            this.textBox7.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox7.Location = new System.Drawing.Point(981, 135);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(63, 20);
-            this.textBox7.TabIndex = 131;
-            this.textBox7.Text = "1500";
+            this.M10Value.BackColor = System.Drawing.SystemColors.Control;
+            this.M10Value.Location = new System.Drawing.Point(981, 135);
+            this.M10Value.Name = "M10Value";
+            this.M10Value.ReadOnly = true;
+            this.M10Value.Size = new System.Drawing.Size(63, 20);
+            this.M10Value.TabIndex = 131;
+            this.M10Value.Text = "1500";
             // 
-            // textBox8
+            // M11Value
             // 
-            this.textBox8.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox8.Location = new System.Drawing.Point(981, 84);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(63, 20);
-            this.textBox8.TabIndex = 130;
-            this.textBox8.Text = "1500";
+            this.M11Value.BackColor = System.Drawing.SystemColors.Control;
+            this.M11Value.Location = new System.Drawing.Point(981, 84);
+            this.M11Value.Name = "M11Value";
+            this.M11Value.ReadOnly = true;
+            this.M11Value.Size = new System.Drawing.Size(63, 20);
+            this.M11Value.TabIndex = 130;
+            this.M11Value.Text = "1500";
             // 
-            // textBox9
+            // M12Value
             // 
-            this.textBox9.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox9.Location = new System.Drawing.Point(981, 33);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(63, 20);
-            this.textBox9.TabIndex = 129;
-            this.textBox9.Text = "1500";
+            this.M12Value.BackColor = System.Drawing.SystemColors.Control;
+            this.M12Value.Location = new System.Drawing.Point(981, 33);
+            this.M12Value.Name = "M12Value";
+            this.M12Value.ReadOnly = true;
+            this.M12Value.Size = new System.Drawing.Size(63, 20);
+            this.M12Value.TabIndex = 129;
+            this.M12Value.Text = "1500";
             // 
-            // trackBar13
+            // trackBar9
             // 
-            this.trackBar13.BackColor = System.Drawing.SystemColors.Control;
-            this.trackBar13.Location = new System.Drawing.Point(744, 174);
-            this.trackBar13.Maximum = 2000;
-            this.trackBar13.Minimum = 1000;
-            this.trackBar13.Name = "trackBar13";
-            this.trackBar13.Size = new System.Drawing.Size(231, 45);
-            this.trackBar13.TabIndex = 126;
-            this.trackBar13.TickFrequency = 25;
-            this.trackBar13.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trackBar13.Value = 1500;
-            this.trackBar13.Scroll += new System.EventHandler(this.trackBar13_Scroll);
+            this.trackBar9.BackColor = System.Drawing.SystemColors.Control;
+            this.trackBar9.Location = new System.Drawing.Point(744, 174);
+            this.trackBar9.Maximum = 2000;
+            this.trackBar9.Minimum = 1000;
+            this.trackBar9.Name = "trackBar9";
+            this.trackBar9.Size = new System.Drawing.Size(231, 45);
+            this.trackBar9.TabIndex = 126;
+            this.trackBar9.TickFrequency = 25;
+            this.trackBar9.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBar9.Value = 1500;
+            this.trackBar9.Scroll += new System.EventHandler(this.trackBar9_Scroll);
             // 
-            // trackBar14
+            // trackBar10
             // 
-            this.trackBar14.BackColor = System.Drawing.SystemColors.Control;
-            this.trackBar14.Location = new System.Drawing.Point(744, 123);
-            this.trackBar14.Maximum = 2000;
-            this.trackBar14.Minimum = 1000;
-            this.trackBar14.Name = "trackBar14";
-            this.trackBar14.Size = new System.Drawing.Size(231, 45);
-            this.trackBar14.TabIndex = 125;
-            this.trackBar14.TickFrequency = 25;
-            this.trackBar14.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trackBar14.Value = 1500;
-            this.trackBar14.Scroll += new System.EventHandler(this.trackBar14_Scroll);
+            this.trackBar10.BackColor = System.Drawing.SystemColors.Control;
+            this.trackBar10.Location = new System.Drawing.Point(744, 123);
+            this.trackBar10.Maximum = 2000;
+            this.trackBar10.Minimum = 1000;
+            this.trackBar10.Name = "trackBar10";
+            this.trackBar10.Size = new System.Drawing.Size(231, 45);
+            this.trackBar10.TabIndex = 125;
+            this.trackBar10.TickFrequency = 25;
+            this.trackBar10.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBar10.Value = 1500;
+            this.trackBar10.Scroll += new System.EventHandler(this.trackBar10_Scroll);
             // 
-            // trackBar15
+            // trackBar11
             // 
-            this.trackBar15.BackColor = System.Drawing.SystemColors.Control;
-            this.trackBar15.Location = new System.Drawing.Point(744, 72);
-            this.trackBar15.Maximum = 2000;
-            this.trackBar15.Minimum = 1000;
-            this.trackBar15.Name = "trackBar15";
-            this.trackBar15.Size = new System.Drawing.Size(231, 45);
-            this.trackBar15.TabIndex = 124;
-            this.trackBar15.TickFrequency = 25;
-            this.trackBar15.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trackBar15.Value = 1500;
-            this.trackBar15.Scroll += new System.EventHandler(this.trackBar15_Scroll);
+            this.trackBar11.BackColor = System.Drawing.SystemColors.Control;
+            this.trackBar11.Location = new System.Drawing.Point(744, 72);
+            this.trackBar11.Maximum = 2000;
+            this.trackBar11.Minimum = 1000;
+            this.trackBar11.Name = "trackBar11";
+            this.trackBar11.Size = new System.Drawing.Size(231, 45);
+            this.trackBar11.TabIndex = 124;
+            this.trackBar11.TickFrequency = 25;
+            this.trackBar11.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBar11.Value = 1500;
+            this.trackBar11.Scroll += new System.EventHandler(this.trackBar11_Scroll);
             // 
-            // trackBar16
+            // trackBar12
             // 
-            this.trackBar16.BackColor = System.Drawing.SystemColors.Control;
-            this.trackBar16.Location = new System.Drawing.Point(744, 21);
-            this.trackBar16.Maximum = 2000;
-            this.trackBar16.Minimum = 1000;
-            this.trackBar16.Name = "trackBar16";
-            this.trackBar16.Size = new System.Drawing.Size(231, 45);
-            this.trackBar16.TabIndex = 123;
-            this.trackBar16.TickFrequency = 25;
-            this.trackBar16.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trackBar16.Value = 1500;
-            this.trackBar16.Scroll += new System.EventHandler(this.trackBar16_Scroll);
+            this.trackBar12.BackColor = System.Drawing.SystemColors.Control;
+            this.trackBar12.Location = new System.Drawing.Point(744, 21);
+            this.trackBar12.Maximum = 2000;
+            this.trackBar12.Minimum = 1000;
+            this.trackBar12.Name = "trackBar12";
+            this.trackBar12.Size = new System.Drawing.Size(231, 45);
+            this.trackBar12.TabIndex = 123;
+            this.trackBar12.TickFrequency = 25;
+            this.trackBar12.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBar12.Value = 1500;
+            this.trackBar12.Scroll += new System.EventHandler(this.trackBar12_Scroll);
             // 
             // pictureBox1
             // 
@@ -614,18 +613,6 @@
             this.Accel.TabIndex = 143;
             this.Accel.Text = "Accel";
             // 
-            // telemetry
-            // 
-            this.telemetry.BackColor = System.Drawing.SystemColors.Control;
-            this.telemetry.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.telemetry.Location = new System.Drawing.Point(26, 367);
-            this.telemetry.Name = "telemetry";
-            this.telemetry.Size = new System.Drawing.Size(97, 44);
-            this.telemetry.TabIndex = 112;
-            this.telemetry.Text = "Telemetri Akışı";
-            this.telemetry.UseVisualStyleBackColor = false;
-            this.telemetry.Click += new System.EventHandler(this.telemetry_Click);
-            // 
             // Pusula
             // 
             chartArea3.Name = "ChartArea1";
@@ -672,14 +659,14 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.trackBar13);
-            this.Controls.Add(this.trackBar14);
-            this.Controls.Add(this.trackBar15);
-            this.Controls.Add(this.trackBar16);
+            this.Controls.Add(this.M9Value);
+            this.Controls.Add(this.M10Value);
+            this.Controls.Add(this.M11Value);
+            this.Controls.Add(this.M12Value);
+            this.Controls.Add(this.trackBar9);
+            this.Controls.Add(this.trackBar10);
+            this.Controls.Add(this.trackBar11);
+            this.Controls.Add(this.trackBar12);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.M8Value);
@@ -693,7 +680,6 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label20);
-            this.Controls.Add(this.telemetry);
             this.Controls.Add(this.Zero);
             this.Controls.Add(this.MTPB);
             this.Controls.Add(this.M6Value);
@@ -723,10 +709,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Gyro)).EndInit();
@@ -771,19 +757,18 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TrackBar trackBar13;
-        private System.Windows.Forms.TrackBar trackBar14;
-        private System.Windows.Forms.TrackBar trackBar15;
-        private System.Windows.Forms.TrackBar trackBar16;
+        private System.Windows.Forms.TextBox M9Value;
+        private System.Windows.Forms.TextBox M10Value;
+        private System.Windows.Forms.TextBox M11Value;
+        private System.Windows.Forms.TextBox M12Value;
+        private System.Windows.Forms.TrackBar trackBar9;
+        private System.Windows.Forms.TrackBar trackBar10;
+        private System.Windows.Forms.TrackBar trackBar11;
+        private System.Windows.Forms.TrackBar trackBar12;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.DataVisualization.Charting.Chart Gyro;
         private System.Windows.Forms.DataVisualization.Charting.Chart Accel;
-        private System.Windows.Forms.Button telemetry;
         private System.Windows.Forms.DataVisualization.Charting.Chart Pusula;
         private System.Windows.Forms.DataVisualization.Charting.Chart sicaklik;
     }
