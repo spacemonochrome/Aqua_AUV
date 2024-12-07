@@ -111,9 +111,9 @@
             // password_label
             // 
             this.password_label.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.password_label.Location = new System.Drawing.Point(224, 74);
+            this.password_label.Location = new System.Drawing.Point(214, 74);
             this.password_label.Name = "password_label";
-            this.password_label.Size = new System.Drawing.Size(100, 22);
+            this.password_label.Size = new System.Drawing.Size(115, 22);
             this.password_label.TabIndex = 28;
             // 
             // label4
@@ -160,7 +160,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(181, 77);
+            this.label3.Location = new System.Drawing.Point(171, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 16);
             this.label3.TabIndex = 21;
@@ -169,16 +169,16 @@
             // username_label
             // 
             this.username_label.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.username_label.Location = new System.Drawing.Point(224, 46);
+            this.username_label.Location = new System.Drawing.Point(214, 46);
             this.username_label.Name = "username_label";
-            this.username_label.Size = new System.Drawing.Size(100, 22);
+            this.username_label.Size = new System.Drawing.Size(115, 22);
             this.username_label.TabIndex = 30;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(130, 49);
+            this.label2.Location = new System.Drawing.Point(120, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 16);
             this.label2.TabIndex = 20;
@@ -187,16 +187,16 @@
             // ipadress_label
             // 
             this.ipadress_label.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.ipadress_label.Location = new System.Drawing.Point(224, 18);
+            this.ipadress_label.Location = new System.Drawing.Point(214, 18);
             this.ipadress_label.Name = "ipadress_label";
-            this.ipadress_label.Size = new System.Drawing.Size(100, 22);
+            this.ipadress_label.Size = new System.Drawing.Size(115, 22);
             this.ipadress_label.TabIndex = 31;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(154, 21);
+            this.label1.Location = new System.Drawing.Point(144, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 16);
             this.label1.TabIndex = 19;
@@ -215,6 +215,7 @@
             // 
             // islemi_Durdur
             // 
+            this.islemi_Durdur.Enabled = false;
             this.islemi_Durdur.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.islemi_Durdur.Location = new System.Drawing.Point(645, 406);
             this.islemi_Durdur.Name = "islemi_Durdur";
@@ -226,6 +227,7 @@
             // 
             // alincak
             // 
+            this.alincak.Enabled = false;
             this.alincak.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.alincak.Location = new System.Drawing.Point(112, 96);
             this.alincak.Name = "alincak";
@@ -237,6 +239,7 @@
             // 
             // Dosya_Yolu_Degistir
             // 
+            this.Dosya_Yolu_Degistir.Enabled = false;
             this.Dosya_Yolu_Degistir.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Dosya_Yolu_Degistir.Location = new System.Drawing.Point(112, 143);
             this.Dosya_Yolu_Degistir.Name = "Dosya_Yolu_Degistir";
@@ -248,6 +251,7 @@
             // 
             // dosya_gonder
             // 
+            this.dosya_gonder.Enabled = false;
             this.dosya_gonder.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dosya_gonder.Location = new System.Drawing.Point(16, 143);
             this.dosya_gonder.Name = "dosya_gonder";
@@ -259,6 +263,7 @@
             // 
             // desktop_listesi
             // 
+            this.desktop_listesi.Enabled = false;
             this.desktop_listesi.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.desktop_listesi.Location = new System.Drawing.Point(16, 96);
             this.desktop_listesi.Name = "desktop_listesi";
@@ -270,6 +275,7 @@
             // 
             // baglantiyi_kes
             // 
+            this.baglantiyi_kes.Enabled = false;
             this.baglantiyi_kes.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.baglantiyi_kes.Location = new System.Drawing.Point(16, 49);
             this.baglantiyi_kes.Name = "baglantiyi_kes";
@@ -281,6 +287,7 @@
             // 
             // komutu_calistir
             // 
+            this.komutu_calistir.Enabled = false;
             this.komutu_calistir.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.komutu_calistir.Location = new System.Drawing.Point(725, 406);
             this.komutu_calistir.Name = "komutu_calistir";

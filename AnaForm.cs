@@ -36,6 +36,7 @@ namespace AUV_UI
         public MotorConfigurationForm Konfigurasyon_Form;
         public ControlPanel kontrol_formu;
         public bool devamlilik_Sensor = false;
+        public bool Baglanti = false;
         public AnaForm()
         {
             InitializeComponent();
@@ -124,7 +125,7 @@ namespace AUV_UI
                 if (RaspiSSHClient.IsConnected && RaspiSSHClient.IsConnected)
                 {
                     shellStream = RaspiSSHClient.CreateShellStream("xterm", 80, 24, 800, 600, 1024);
-
+                    Baglanti = true;
                     var cmd = RaspiSSHClient.CreateCommand("echo -n $HOME/Desktop");
                     var result = cmd.Execute();
                     raspi_dosya_yolu_Gonder = result;
@@ -142,6 +143,7 @@ namespace AUV_UI
                 }
                 else
                 {
+                    Baglanti = false;
                     pictureBox2.Image = Properties.Resources.rederror;
                     desktop_listesi.Enabled = false;
                     dosya_gonder.Enabled = false;
@@ -315,18 +317,20 @@ namespace AUV_UI
         {
             try
             {
+                ControlPanelButton.Enabled = false;
                 shellStream.WriteLine(komut_satiri.Text + " & echo C$!C; wait $!"); 
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }            
         }
 
-        private void islemi_Durdur_Click(object sender, EventArgs e)
+        public void islemi_Durdur_Click(object sender, EventArgs e)
         {
             try
             {
                 RaspiSSHClient.CreateCommand($"kill -9 {currentProcessId}").Execute();
                 islemi_Durdur.Enabled = false;
                 komutu_calistir.Enabled = true;
+                ControlPanelButton.Enabled = true;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }            
         }

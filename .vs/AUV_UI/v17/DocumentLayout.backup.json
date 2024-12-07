@@ -3,31 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8495EEA3-1A0B-4A80-90B7-F1BDB3A478F4}|AUV_UI.csproj|C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\anaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8495EEA3-1A0B-4A80-90B7-F1BDB3A478F4}|AUV_UI.csproj|c:\\users\\hasan\\desktop\\auv2025\\auv_ui\\anaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8495EEA3-1A0B-4A80-90B7-F1BDB3A478F4}|AUV_UI.csproj|solutionrelative:anaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8495EEA3-1A0B-4A80-90B7-F1BDB3A478F4}|AUV_UI.csproj|C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\anaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{8495EEA3-1A0B-4A80-90B7-F1BDB3A478F4}|AUV_UI.csproj|c:\\users\\hasan\\desktop\\auv2025\\auv_ui\\anaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8495EEA3-1A0B-4A80-90B7-F1BDB3A478F4}|AUV_UI.csproj|solutionrelative:anaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8495EEA3-1A0B-4A80-90B7-F1BDB3A478F4}|AUV_UI.csproj|C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\controlpanel.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8495EEA3-1A0B-4A80-90B7-F1BDB3A478F4}|AUV_UI.csproj|solutionrelative:controlpanel.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8495EEA3-1A0B-4A80-90B7-F1BDB3A478F4}|AUV_UI.csproj|c:\\users\\hasan\\desktop\\auv2025\\auv_ui\\motorconfigurationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8495EEA3-1A0B-4A80-90B7-F1BDB3A478F4}|AUV_UI.csproj|solutionrelative:motorconfigurationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8495EEA3-1A0B-4A80-90B7-F1BDB3A478F4}|AUV_UI.csproj|c:\\users\\hasan\\desktop\\auv2025\\auv_ui\\controlpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8495EEA3-1A0B-4A80-90B7-F1BDB3A478F4}|AUV_UI.csproj|solutionrelative:controlpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8495EEA3-1A0B-4A80-90B7-F1BDB3A478F4}|AUV_UI.csproj|c:\\users\\hasan\\desktop\\auv2025\\auv_ui\\controlpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8495EEA3-1A0B-4A80-90B7-F1BDB3A478F4}|AUV_UI.csproj|solutionrelative:controlpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8495EEA3-1A0B-4A80-90B7-F1BDB3A478F4}|AUV_UI.csproj|C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\controlpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8495EEA3-1A0B-4A80-90B7-F1BDB3A478F4}|AUV_UI.csproj|solutionrelative:controlpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|AUV_UI||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8495EEA3-1A0B-4A80-90B7-F1BDB3A478F4}|AUV_UI.csproj|c:\\users\\hasan\\desktop\\auv2025\\auv_ui\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
-      "RelativeMoniker": "D:0:0:{8495EEA3-1A0B-4A80-90B7-F1BDB3A478F4}|AUV_UI.csproj|solutionrelative:properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,19 +30,44 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AUV_UI",
-              "DocumentMoniker": "C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\AUV_UI.csproj",
-              "RelativeDocumentMoniker": "AUV_UI.csproj",
-              "ToolTip": "C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\AUV_UI.csproj",
-              "RelativeToolTip": "AUV_UI.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-12-05T22:10:58.971Z",
+              "DocumentIndex": 2,
+              "Title": "MotorConfigurationForm.cs [Tasar\u0131m]",
+              "DocumentMoniker": "C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\MotorConfigurationForm.cs",
+              "RelativeDocumentMoniker": "MotorConfigurationForm.cs",
+              "ToolTip": "C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\MotorConfigurationForm.cs [Tasar\u0131m]",
+              "RelativeToolTip": "MotorConfigurationForm.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T16:34:20.332Z",
+              "EditorCaption": " [Tasar\u0131m]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ControlPanel.cs",
+              "DocumentMoniker": "C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\ControlPanel.cs",
+              "RelativeDocumentMoniker": "ControlPanel.cs",
+              "ToolTip": "C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\ControlPanel.cs",
+              "RelativeToolTip": "ControlPanel.cs",
+              "ViewState": "AgIAAIwAAAAAAAAAAAArwKIAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T15:56:03.769Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ControlPanel.cs [Tasar\u0131m]",
+              "DocumentMoniker": "C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\ControlPanel.cs",
+              "RelativeDocumentMoniker": "ControlPanel.cs",
+              "ToolTip": "C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\ControlPanel.cs [Tasar\u0131m]",
+              "RelativeToolTip": "ControlPanel.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T15:55:45.146Z",
+              "EditorCaption": " [Tasar\u0131m]"
             },
             {
               "$type": "Document",
@@ -59,9 +77,9 @@
               "RelativeDocumentMoniker": "AnaForm.cs",
               "ToolTip": "C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\AnaForm.cs",
               "RelativeToolTip": "AnaForm.cs",
-              "ViewState": "AgIAAJ4AAAAAAAAAAAAowL0AAABaAAAAAAAAAA==",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAArwL8AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T17:39:45.762Z",
+              "WhenOpened": "2024-12-07T15:54:39.701Z",
               "EditorCaption": ""
             },
             {
@@ -73,46 +91,8 @@
               "ToolTip": "C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\AnaForm.cs [Tasar\u0131m]",
               "RelativeToolTip": "AnaForm.cs [Tasar\u0131m]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T17:39:43.988Z",
+              "WhenOpened": "2024-12-07T15:54:38.377Z",
               "EditorCaption": " [Tasar\u0131m]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ControlPanel.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\ControlPanel.Designer.cs",
-              "RelativeDocumentMoniker": "ControlPanel.Designer.cs",
-              "ToolTip": "C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\ControlPanel.Designer.cs",
-              "RelativeToolTip": "ControlPanel.Designer.cs",
-              "ViewState": "AgIAABwCAAAAAAAAAAAMwC8CAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T17:01:13.934Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ControlPanel.cs [Tasar\u0131m]",
-              "DocumentMoniker": "C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\ControlPanel.cs",
-              "RelativeDocumentMoniker": "ControlPanel.cs",
-              "ToolTip": "C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\ControlPanel.cs [Tasar\u0131m]",
-              "RelativeToolTip": "ControlPanel.cs [Tasar\u0131m]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-03T23:05:57.53Z",
-              "EditorCaption": " [Tasar\u0131m]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ControlPanel.cs",
-              "DocumentMoniker": "C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\ControlPanel.cs",
-              "RelativeDocumentMoniker": "ControlPanel.cs",
-              "ToolTip": "C:\\Users\\hasan\\Desktop\\AUV2025\\AUV_UI\\ControlPanel.cs",
-              "RelativeToolTip": "ControlPanel.cs",
-              "ViewState": "AgIAAHsAAAAAAAAAAAAMwJAAAABPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T13:52:02.829Z",
-              "EditorCaption": ""
             }
           ]
         }

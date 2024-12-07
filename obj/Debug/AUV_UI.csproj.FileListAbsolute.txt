@@ -45,3 +45,9 @@ C:\Users\hasan\Desktop\AUV2025\AUV_UI\obj\Debug\AUV_UI.csproj.CoreCompileInputs.
 C:\Users\hasan\Desktop\AUV2025\AUV_UI\obj\Debug\AUV_UI.csproj.Up2Date
 C:\Users\hasan\Desktop\AUV2025\AUV_UI\obj\Debug\AUV_UI.exe
 C:\Users\hasan\Desktop\AUV2025\AUV_UI\obj\Debug\AUV_UI.pdb
+C:\Users\hasan\Desktop\AUV2025\AUV_UI\bin\Debug\LiveCharts.dll
+C:\Users\hasan\Desktop\AUV2025\AUV_UI\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\hasan\Desktop\AUV2025\AUV_UI\bin\Debug\LiveCharts.pdb
+C:\Users\hasan\Desktop\AUV2025\AUV_UI\bin\Debug\LiveCharts.xml
+C:\Users\hasan\Desktop\AUV2025\AUV_UI\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\hasan\Desktop\AUV2025\AUV_UI\bin\Debug\LiveCharts.Wpf.xml

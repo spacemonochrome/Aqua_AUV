@@ -212,23 +212,24 @@
             // 
             this.Zero.BackColor = System.Drawing.SystemColors.Control;
             this.Zero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Zero.Location = new System.Drawing.Point(26, 376);
+            this.Zero.Location = new System.Drawing.Point(26, 391);
             this.Zero.Name = "Zero";
             this.Zero.Size = new System.Drawing.Size(97, 32);
             this.Zero.TabIndex = 112;
             this.Zero.Text = "Sıfırla";
             this.Zero.UseVisualStyleBackColor = false;
+            this.Zero.Click += new System.EventHandler(this.Zero_Click);
             // 
             // MTPB
             // 
             this.MTPB.BackColor = System.Drawing.SystemColors.Control;
             this.MTPB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.MTPB.Location = new System.Drawing.Point(26, 265);
+            this.MTPB.Location = new System.Drawing.Point(26, 302);
             this.MTPB.Name = "MTPB";
-            this.MTPB.Size = new System.Drawing.Size(97, 88);
+            this.MTPB.Size = new System.Drawing.Size(97, 63);
             this.MTPB.TabIndex = 111;
             this.MTPB.Tag = "T";
-            this.MTPB.Text = "Kontrol ve Telemetriyi Başlat";
+            this.MTPB.Text = "Motor Testini Başlat";
             this.MTPB.UseVisualStyleBackColor = false;
             this.MTPB.Click += new System.EventHandler(this.MTPB_Click);
             // 
@@ -398,6 +399,7 @@
             this.trackBar8.TickFrequency = 25;
             this.trackBar8.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.trackBar8.Value = 1500;
+            this.trackBar8.Scroll += new System.EventHandler(this.trackBar8_Scroll);
             // 
             // M8Value
             // 
@@ -427,9 +429,9 @@
             this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label7.Location = new System.Drawing.Point(1050, 188);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(25, 16);
+            this.label7.Size = new System.Drawing.Size(47, 16);
             this.label7.TabIndex = 140;
-            this.label7.Text = "M4";
+            this.label7.Text = "PWM1";
             // 
             // label8
             // 
@@ -438,9 +440,9 @@
             this.label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label8.Location = new System.Drawing.Point(1050, 137);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(25, 16);
+            this.label8.Size = new System.Drawing.Size(47, 16);
             this.label8.TabIndex = 137;
-            this.label8.Text = "M3";
+            this.label8.Text = "PWM2";
             // 
             // label10
             // 
@@ -449,9 +451,9 @@
             this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label10.Location = new System.Drawing.Point(1050, 86);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(25, 16);
+            this.label10.Size = new System.Drawing.Size(47, 16);
             this.label10.TabIndex = 138;
-            this.label10.Text = "M2";
+            this.label10.Text = "PWM3";
             // 
             // label11
             // 
@@ -460,9 +462,9 @@
             this.label11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label11.Location = new System.Drawing.Point(1050, 35);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(25, 16);
+            this.label11.Size = new System.Drawing.Size(47, 16);
             this.label11.TabIndex = 139;
-            this.label11.Text = "M1";
+            this.label11.Text = "PWM4";
             // 
             // M9Value
             // 
@@ -593,7 +595,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.Gyro.Series.Add(series1);
-            this.Gyro.Size = new System.Drawing.Size(356, 215);
+            this.Gyro.Size = new System.Drawing.Size(360, 215);
             this.Gyro.TabIndex = 142;
             this.Gyro.Text = "Gyro";
             // 
@@ -609,7 +611,7 @@
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.Accel.Series.Add(series2);
-            this.Accel.Size = new System.Drawing.Size(356, 215);
+            this.Accel.Size = new System.Drawing.Size(360, 215);
             this.Accel.TabIndex = 143;
             this.Accel.Text = "Accel";
             // 
@@ -625,7 +627,7 @@
             series3.Legend = "Legend1";
             series3.Name = "Series1";
             this.Pusula.Series.Add(series3);
-            this.Pusula.Size = new System.Drawing.Size(331, 215);
+            this.Pusula.Size = new System.Drawing.Size(394, 215);
             this.Pusula.TabIndex = 145;
             this.Pusula.Text = "compass";
             // 
@@ -635,13 +637,13 @@
             this.sicaklik.ChartAreas.Add(chartArea4);
             legend4.Name = "Legend1";
             this.sicaklik.Legends.Add(legend4);
-            this.sicaklik.Location = new System.Drawing.Point(363, 486);
+            this.sicaklik.Location = new System.Drawing.Point(426, 486);
             this.sicaklik.Name = "sicaklik";
             series4.ChartArea = "ChartArea1";
             series4.Legend = "Legend1";
             series4.Name = "Series1";
             this.sicaklik.Series.Add(series4);
-            this.sicaklik.Size = new System.Drawing.Size(726, 215);
+            this.sicaklik.Size = new System.Drawing.Size(663, 215);
             this.sicaklik.TabIndex = 146;
             this.sicaklik.Text = "temp";
             // 
@@ -649,7 +651,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 728);
+            this.ClientSize = new System.Drawing.Size(1113, 719);
             this.Controls.Add(this.sicaklik);
             this.Controls.Add(this.Pusula);
             this.Controls.Add(this.Accel);
@@ -695,11 +697,12 @@
             this.Controls.Add(this.trackBar2);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.pictureBox7);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ControlPanel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kontrol ve Telemetri Paneli";
-            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.trackBar7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar5)).EndInit();

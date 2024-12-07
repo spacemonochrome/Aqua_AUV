@@ -47,14 +47,9 @@ namespace AUV_UI
 
             MotorDuzeni.SelectedIndex = 0;
 
-            if (Ana.RaspiSSHClient != null)
-            {
-                Test_Buton.Enabled = true;
-            }
-            else
-            {
-                Test_Buton.Enabled = false;
-            }
+            if (Ana.Baglanti == true) { Test_Buton.Enabled = true; Log_Gonder.Enabled = true; }
+            else { Test_Buton.Enabled = false; Log_Gonder.Enabled = false; }
+
         }
 
         private void Test_Buton_Click(object sender, EventArgs e)
