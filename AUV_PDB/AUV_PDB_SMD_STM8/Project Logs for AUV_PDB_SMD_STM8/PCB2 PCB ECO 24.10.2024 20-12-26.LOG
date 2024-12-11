@@ -1,0 +1,193 @@
+Added Component: Designator=B2(SMD TACT SWITCH BUTTON)
+Added Component: Designator=C11(0603 SMD CAP)
+Added Component: Designator=C12(0603 SMD CAP)
+Added Component: Designator=C13(0603 SMD CAP)
+Added Component: Designator=C14(0603 SMD CAP)
+Added Component: Designator=C15(0805 SMD CAP)
+Added Component: Designator=C16(0603 SMD CAP)
+Added Component: Designator=C17(0603 SMD CAP)
+Added Component: Designator=D5(0805 SMD LED)
+Added Component: Designator=J5(B4B-XH-A (LF)(SN))
+Added Component: Designator=J6(B4B-XH-A (LF)(SN))
+Added Component: Designator=J7(B4B-XH-A (LF)(SN))
+Added Component: Designator=J8(MEM2075-00-140-01-A)
+Added Component: Designator=J9(CON1x8_2.54MM)
+Added Component: Designator=J10(CON1x8_2.54MM)
+Added Component: Designator=J11(CON1x8_2.54MM)
+Added Component: Designator=J12(CON1x4_2.54MM)
+Added Component: Designator=J13(CON1x4_2.54MM)
+Added Component: Designator=J14(CON1x4_2.54MM)
+Added Component: Designator=J15(B2B-XH-A (LF)(SN))
+Added Component: Designator=R16(0805 SMD RES)
+Added Component: Designator=R17(0805 SMD RES)
+Added Component: Designator=REG3(TO-252 DPAK)
+Added Component: Designator=U4(LQFP-64)
+Added Component: Designator=U5(MPU9250 Module)
+Added Component: Designator=X1(HC49-S Crystal Oscillator)
+Added Pin To Net: NetName=3.3V Pin=C11-2
+Added Pin To Net: NetName=3.3V Pin=C12-2
+Added Pin To Net: NetName=3.3V Pin=C13-2
+Added Pin To Net: NetName=3.3V Pin=C14-2
+Added Pin To Net: NetName=3.3V Pin=J5-1
+Added Pin To Net: NetName=3.3V Pin=J6-1
+Added Pin To Net: NetName=3.3V Pin=J7-1
+Added Pin To Net: NetName=3.3V Pin=J8-P4
+Added Pin To Net: NetName=3.3V Pin=R16-2
+Added Pin To Net: NetName=3.3V Pin=R17-2
+Added Pin To Net: NetName=3.3V Pin=REG3-3
+Added Pin To Net: NetName=3.3V Pin=U4-32
+Added Pin To Net: NetName=3.3V Pin=U4-48
+Added Pin To Net: NetName=3.3V Pin=U4-64
+Added Pin To Net: NetName=3.3V Pin=U5-9
+Added Net: Name=3.3V
+Added Pin To Net: NetName=GND Pin=B2-1
+Added Pin To Net: NetName=GND Pin=C11-1
+Added Pin To Net: NetName=GND Pin=C12-1
+Added Pin To Net: NetName=GND Pin=C13-1
+Added Pin To Net: NetName=GND Pin=C14-1
+Added Pin To Net: NetName=GND Pin=C15-2
+Added Pin To Net: NetName=GND Pin=C16-1
+Added Pin To Net: NetName=GND Pin=C17-1
+Added Pin To Net: NetName=GND Pin=D5-C
+Added Pin To Net: NetName=GND Pin=J5-4
+Added Pin To Net: NetName=GND Pin=J6-4
+Added Pin To Net: NetName=GND Pin=J7-4
+Added Pin To Net: NetName=GND Pin=J8-P6
+Added Pin To Net: NetName=GND Pin=J11-1
+Added Pin To Net: NetName=GND Pin=J11-2
+Added Pin To Net: NetName=GND Pin=J11-3
+Added Pin To Net: NetName=GND Pin=J11-4
+Added Pin To Net: NetName=GND Pin=J11-5
+Added Pin To Net: NetName=GND Pin=J11-6
+Added Pin To Net: NetName=GND Pin=J11-7
+Added Pin To Net: NetName=GND Pin=J11-8
+Added Pin To Net: NetName=GND Pin=J14-1
+Added Pin To Net: NetName=GND Pin=J14-2
+Added Pin To Net: NetName=GND Pin=J14-3
+Added Pin To Net: NetName=GND Pin=J14-4
+Added Pin To Net: NetName=GND Pin=J15-1
+Added Pin To Net: NetName=GND Pin=REG3-4
+Added Pin To Net: NetName=GND Pin=U4-31
+Added Pin To Net: NetName=GND Pin=U4-47
+Added Pin To Net: NetName=GND Pin=U4-63
+Added Pin To Net: NetName=GND Pin=U5-8
+Added Net: Name=GND
+Added Pin To Net: NetName=I2C_SCL Pin=J5-3
+Added Pin To Net: NetName=I2C_SCL Pin=U4-61
+Added Net: Name=I2C_SCL
+Added Pin To Net: NetName=I2C_SDA Pin=J5-2
+Added Pin To Net: NetName=I2C_SDA Pin=U4-62
+Added Net: Name=I2C_SDA
+Added Pin To Net: NetName=NetD5_A Pin=D5-A
+Added Pin To Net: NetName=NetD5_A Pin=R16-1
+Added Net: Name=NetD5_A
+Added Pin To Net: NetName=NetJ15_2 Pin=J15-2
+Added Pin To Net: NetName=NetJ15_2 Pin=REG3-1
+Added Net: Name=NetJ15_2
+Added Pin To Net: NetName=NRST Pin=B2-0
+Added Pin To Net: NetName=NRST Pin=C15-1
+Added Pin To Net: NetName=NRST Pin=R17-1
+Added Pin To Net: NetName=NRST Pin=U4-7
+Added Net: Name=NRST
+Added Pin To Net: NetName=OSCIN Pin=C16-2
+Added Pin To Net: NetName=OSCIN Pin=X1-2
+Added Net: Name=OSCIN
+Added Pin To Net: NetName=OSCOUT Pin=C17-2
+Added Pin To Net: NetName=OSCOUT Pin=X1-1
+Added Net: Name=OSCOUT
+Added Pin To Net: NetName=SCL Pin=U5-7
+Added Net: Name=SCL
+Added Pin To Net: NetName=SDA Pin=U5-6
+Added Net: Name=SDA
+Added Pin To Net: NetName=SDIO_CK Pin=J8-P5
+Added Pin To Net: NetName=SDIO_CK Pin=U4-28
+Added Net: Name=SDIO_CK
+Added Pin To Net: NetName=SDIO_CMD Pin=J8-P3
+Added Pin To Net: NetName=SDIO_CMD Pin=U4-54
+Added Net: Name=SDIO_CMD
+Added Pin To Net: NetName=SDIO_D0 Pin=J8-P7
+Added Pin To Net: NetName=SDIO_D0 Pin=U4-39
+Added Net: Name=SDIO_D0
+Added Pin To Net: NetName=SDIO_D1 Pin=J8-P8
+Added Pin To Net: NetName=SDIO_D1 Pin=U4-40
+Added Net: Name=SDIO_D1
+Added Pin To Net: NetName=SDIO_D2 Pin=J8-P1
+Added Pin To Net: NetName=SDIO_D2 Pin=U4-51
+Added Net: Name=SDIO_D2
+Added Pin To Net: NetName=SDIO_D3 Pin=J8-P2
+Added Pin To Net: NetName=SDIO_D3 Pin=U4-52
+Added Net: Name=SDIO_D3
+Added Pin To Net: NetName=SWCLK Pin=J6-3
+Added Pin To Net: NetName=SWCLK Pin=U4-49
+Added Net: Name=SWCLK
+Added Pin To Net: NetName=SWIO Pin=J6-2
+Added Pin To Net: NetName=SWIO Pin=U4-46
+Added Net: Name=SWIO
+Added Pin To Net: NetName=TIM1_CH1 Pin=J12-1
+Added Pin To Net: NetName=TIM1_CH1 Pin=U4-41
+Added Net: Name=TIM1_CH1
+Added Pin To Net: NetName=TIM1_CH2 Pin=J12-2
+Added Pin To Net: NetName=TIM1_CH2 Pin=U4-42
+Added Net: Name=TIM1_CH2
+Added Pin To Net: NetName=TIM1_CH3 Pin=J12-3
+Added Pin To Net: NetName=TIM1_CH3 Pin=U4-43
+Added Net: Name=TIM1_CH3
+Added Pin To Net: NetName=TIM1_CH4 Pin=J12-4
+Added Pin To Net: NetName=TIM1_CH4 Pin=U4-44
+Added Net: Name=TIM1_CH4
+Added Pin To Net: NetName=TIM2_CH1 Pin=J9-1
+Added Pin To Net: NetName=TIM2_CH1 Pin=U4-14
+Added Net: Name=TIM2_CH1
+Added Pin To Net: NetName=TIM2_CH2 Pin=J9-2
+Added Pin To Net: NetName=TIM2_CH2 Pin=U4-15
+Added Net: Name=TIM2_CH2
+Added Pin To Net: NetName=TIM2_CH3 Pin=J9-3
+Added Pin To Net: NetName=TIM2_CH3 Pin=U4-16
+Added Net: Name=TIM2_CH3
+Added Pin To Net: NetName=TIM2_CH4 Pin=J9-4
+Added Pin To Net: NetName=TIM2_CH4 Pin=U4-17
+Added Net: Name=TIM2_CH4
+Added Pin To Net: NetName=TIM3_CH1 Pin=J9-5
+Added Pin To Net: NetName=TIM3_CH1 Pin=U4-22
+Added Net: Name=TIM3_CH1
+Added Pin To Net: NetName=TIM3_CH2 Pin=J9-6
+Added Pin To Net: NetName=TIM3_CH2 Pin=U4-23
+Added Net: Name=TIM3_CH2
+Added Pin To Net: NetName=TIM3_CH3 Pin=J9-7
+Added Pin To Net: NetName=TIM3_CH3 Pin=U4-26
+Added Net: Name=TIM3_CH3
+Added Pin To Net: NetName=TIM3_CH4 Pin=J9-8
+Added Pin To Net: NetName=TIM3_CH4 Pin=U4-27
+Added Net: Name=TIM3_CH4
+Added Pin To Net: NetName=USART1_RX Pin=J7-2
+Added Pin To Net: NetName=USART1_RX Pin=U4-59
+Added Net: Name=USART1_RX
+Added Pin To Net: NetName=USART1_TX Pin=J7-3
+Added Pin To Net: NetName=USART1_TX Pin=U4-58
+Added Net: Name=USART1_TX
+Added Member To Class: ClassName=Kontrol Member=Component B2 Buton
+Added Member To Class: ClassName=Kontrol Member=Component C11 1uF
+Added Member To Class: ClassName=Kontrol Member=Component C12 1uF
+Added Member To Class: ClassName=Kontrol Member=Component C13 1uF
+Added Member To Class: ClassName=Kontrol Member=Component C14 1uF
+Added Member To Class: ClassName=Kontrol Member=Component C15 0.1uF
+Added Member To Class: ClassName=Kontrol Member=Component C16 20pF
+Added Member To Class: ClassName=Kontrol Member=Component C17 20pF
+Added Member To Class: ClassName=Kontrol Member=Component D5 Red
+Added Member To Class: ClassName=Kontrol Member=Component J5 B4B-XH-A (LF)(SN)
+Added Member To Class: ClassName=Kontrol Member=Component J6 B4B-XH-A (LF)(SN)
+Added Member To Class: ClassName=Kontrol Member=Component J7 B4B-XH-A (LF)(SN)
+Added Member To Class: ClassName=Kontrol Member=Component J8 MEM2075-00-140-01-A
+Added Member To Class: ClassName=Kontrol Member=Component J9 1x8 CONN
+Added Member To Class: ClassName=Kontrol Member=Component J10 1x8 CONN
+Added Member To Class: ClassName=Kontrol Member=Component J11 1x8 CONN
+Added Member To Class: ClassName=Kontrol Member=Component J12 1x4 CONN
+Added Member To Class: ClassName=Kontrol Member=Component J13 1x4 CONN
+Added Member To Class: ClassName=Kontrol Member=Component J14 1x4 CONN
+Added Member To Class: ClassName=Kontrol Member=Component J15 B4B-XH-A (LF)(SN)
+Added Member To Class: ClassName=Kontrol Member=Component R16 330R
+Added Member To Class: ClassName=Kontrol Member=Component R17 10K
+Added Member To Class: ClassName=Kontrol Member=Component REG3 UA78M33CK TO-252
+Added Member To Class: ClassName=Kontrol Member=Component U4 STM32F446RET6
+Added Member To Class: ClassName=Kontrol Member=Component U5 MPU9250 Module
+Added Member To Class: ClassName=Kontrol Member=Component X1 25Mhz

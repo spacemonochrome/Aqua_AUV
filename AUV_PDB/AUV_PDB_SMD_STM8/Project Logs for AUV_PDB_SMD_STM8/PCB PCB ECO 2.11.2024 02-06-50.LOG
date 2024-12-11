@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=NRST Pin=J2-1
+Removed Pin From Net: NetName=GND Pin=J2-2
+Removed Pin From Net: NetName=SWIM Pin=J2-3
+Removed Pin From Net: NetName=3.3V Pin=J2-4
+Removed Member From Class: ClassName=sch Member=J2
+Removed Member From Class: ClassName=sch Member=J4
+Change Component Footprint: Designator=R4 Old Footprint=RES 2512 SMD New Footprint=RES 3920 SMD
+Change Component Comment : Designator=R4 Old Comment=0.003R New Comment=0.0003R

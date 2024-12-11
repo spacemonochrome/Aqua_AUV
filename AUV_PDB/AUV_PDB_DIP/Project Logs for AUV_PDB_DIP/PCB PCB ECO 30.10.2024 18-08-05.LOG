@@ -1,0 +1,4 @@
+Added Component: Designator=R6(RES DIP)
+Added Pin To Net: NetName=GND Pin=R6-1
+Added Pin To Net: NetName=NetQ1_1 Pin=R6-2
+Added Member To Class: ClassName=Sch Member=Component R6 10K

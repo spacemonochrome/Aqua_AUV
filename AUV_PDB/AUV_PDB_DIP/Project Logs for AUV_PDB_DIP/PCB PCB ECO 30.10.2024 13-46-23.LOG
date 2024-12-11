@@ -1,0 +1,14 @@
+Change Physical Footprint: Designator=C1 Old Footprint=CER-DIP-CAP New Footprint=CER-DIP-CAP
+Change Physical Footprint: Designator=C2 Old Footprint=CER-DIP-CAP New Footprint=CER-DIP-CAP
+Change Physical Footprint: Designator=C3 Old Footprint=CER-DIP-CAP New Footprint=CER-DIP-CAP
+Change Physical Footprint: Designator=C4 Old Footprint=CER-DIP-CAP New Footprint=CER-DIP-CAP
+Change Physical Footprint: Designator=D1 Old Footprint=LED DIP New Footprint=LED DIP
+Change Physical Footprint: Designator=IC1 Old Footprint=DIP-8 New Footprint=DIP-8
+Change Physical Footprint: Designator=IC2 Old Footprint=UA New Footprint=UA
+Change Physical Footprint: Designator=J1 Old Footprint=XT60 Male Pin New Footprint=XT60 Male Pin
+Change Physical Footprint: Designator=Q1 Old Footprint=TO-220 New Footprint=TO-220
+Change Physical Footprint: Designator=R1 Old Footprint=RES DIP New Footprint=RES DIP
+Change Physical Footprint: Designator=R2 Old Footprint=RES DIP New Footprint=RES DIP
+Change Physical Footprint: Designator=R3 Old Footprint=RES DIP New Footprint=RES DIP
+Change Physical Footprint: Designator=R5 Old Footprint=RES DIP New Footprint=RES DIP
+Change Physical Footprint: Designator=U1 Old Footprint=TO-226 TO-92 New Footprint=TO-226 TO-92

@@ -1,0 +1,2 @@
+Removed Pin From Net: NetName=3S-6S Pin=C1-2
+Added Pin To Net: NetName=Current_ADC Pin=C1-2

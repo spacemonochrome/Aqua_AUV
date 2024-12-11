@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=GND Pin=C5-1
+Removed Pin From Net: NetName=ADC1 Pin=C5-2
+Removed Pin From Net: NetName=ShontAdc Pin=R8-2
+Removed Pin From Net: NetName=GND Pin=U3-2
+Removed Pin From Net: NetName=NetR7_2 Pin=U3-3
+Removed Pin From Net: NetName=3.3V Pin=U3-8
+Removed Member From Class: ClassName=sch Member=C5
+Added Component: Designator=D2(1N4001)
+Added Pin To Net: NetName=GND Pin=D2-A
+Added Pin To Net: NetName=ADC1 Pin=D2-C
+Added Pin To Net: NetName=GND Pin=R8-2
+Added Pin To Net: NetName=NetR7_2 Pin=U3-2
+Added Pin To Net: NetName=ShontAdc Pin=U3-3
+Added Pin To Net: NetName=ADC1 Pin=U3-7
+Added Pin To Net: NetName=5V Pin=U3-8
+Added Member To Class: ClassName=sch Member=Component D2 3V3 1W zener

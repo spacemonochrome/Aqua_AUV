@@ -1,0 +1,64 @@
+Added Component: Designator=C1(CER-DIP-CAP)
+Added Component: Designator=C2(CER-DIP-CAP)
+Added Component: Designator=C3(CER-DIP-CAP)
+Added Component: Designator=C4(CER-DIP-CAP)
+Added Component: Designator=D1(LED DIP)
+Added Component: Designator=IC1(DIP-8)
+Added Component: Designator=IC2(UA)
+Added Component: Designator=J1(XT60 Male Pin)
+Added Component: Designator=Q1(TO-220)
+Added Component: Designator=R1(RES DIP)
+Added Component: Designator=R2(RES DIP)
+Added Component: Designator=R3(RES DIP)
+Added Component: Designator=R4(RES DIP)
+Added Component: Designator=R5(RES DIP)
+Added Component: Designator=U1(TO-226 TO-92)
+Added Pin To Net: NetName=3S-6S Pin=C1-2
+Added Pin To Net: NetName=3S-6S Pin=J1-P
+Added Pin To Net: NetName=3S-6S Pin=U1-3
+Added Pin To Net: NetName=3S-6S Pin=IC1-8
+Added Net: Name=3S-6S
+Added Pin To Net: NetName=5V Pin=C2-2
+Added Pin To Net: NetName=5V Pin=R5-1
+Added Pin To Net: NetName=5V Pin=U1-1
+Added Pin To Net: NetName=5V Pin=IC2-1
+Added Net: Name=5V
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=GND Pin=C3-1
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=GND Pin=D1-C
+Added Pin To Net: NetName=GND Pin=J1-N
+Added Pin To Net: NetName=GND Pin=Q1-3
+Added Pin To Net: NetName=GND Pin=U1-2
+Added Pin To Net: NetName=GND Pin=IC1-3
+Added Pin To Net: NetName=GND Pin=IC1-5
+Added Pin To Net: NetName=GND Pin=IC2-3
+Added Net: Name=GND
+Added Pin To Net: NetName=HallOut Pin=C3-2
+Added Pin To Net: NetName=HallOut Pin=R1-1
+Added Pin To Net: NetName=HallOut Pin=R3-1
+Added Pin To Net: NetName=HallOut Pin=IC2-2
+Added Net: Name=HallOut
+Added Pin To Net: NetName=Negative Pin=Q1-2
+Added Net: Name=Negative
+Added Pin To Net: NetName=NetC4_2 Pin=C4-2
+Added Pin To Net: NetName=NetC4_2 Pin=R5-2
+Added Net: Name=NetC4_2
+Added Pin To Net: NetName=NetD1_A Pin=D1-A
+Added Pin To Net: NetName=NetD1_A Pin=R3-2
+Added Net: Name=NetD1_A
+Added Pin To Net: NetName=NetQ1_1 Pin=Q1-1
+Added Pin To Net: NetName=NetQ1_1 Pin=R2-2
+Added Pin To Net: NetName=NetQ1_1 Pin=R4-2
+Added Net: Name=NetQ1_1
+Added Pin To Net: NetName=NetR1_2 Pin=R1-2
+Added Pin To Net: NetName=NetR1_2 Pin=IC1-2
+Added Net: Name=NetR1_2
+Added Pin To Net: NetName=NetR2_1 Pin=R2-1
+Added Pin To Net: NetName=NetR2_1 Pin=R4-1
+Added Pin To Net: NetName=NetR2_1 Pin=IC1-6
+Added Pin To Net: NetName=NetR2_1 Pin=IC1-7
+Added Net: Name=NetR2_1
+Added Class: Name=Sch
+Added Rule: Name=Schematic Supply Nets

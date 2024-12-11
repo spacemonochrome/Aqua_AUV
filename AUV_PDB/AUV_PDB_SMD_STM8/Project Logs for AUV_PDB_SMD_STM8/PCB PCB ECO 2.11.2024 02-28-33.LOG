@@ -1,0 +1,2 @@
+Change Component Footprint: Designator=R4 Old Footprint=RES 3920 SMD New Footprint=RES 2512 SMD
+Change Component Comment : Designator=R4 Old Comment=0.0003R New Comment=2512 SHUNT RESISTOR

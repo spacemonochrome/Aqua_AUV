@@ -1,0 +1,2 @@
+Removed Pin From Net: NetName=ADC1 Pin=U3-7
+Added Member To Class: ClassName=sch Member=Component R10 1K

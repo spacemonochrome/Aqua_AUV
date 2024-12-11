@@ -1,0 +1,56 @@
+Added Pin To Net: NetName=HallOut Pin=C7-1
+Added Pin To Net: NetName=NetC7_2 Pin=C7-2
+Added Pin To Net: NetName=NetR6_2 Pin=IC3-1
+Added Pin To Net: NetName=GND Pin=IC3-3
+Added Pin To Net: NetName=GND Pin=IC3-4
+Added Pin To Net: NetName=NetR5_1 Pin=IC3-5
+Added Pin To Net: NetName=3S-6S Pin=IC3-6
+Added Pin To Net: NetName=Current_ADC Pin=Q1-1
+Added Pin To Net: NetName=Current_ADC Pin=Q1-2
+Added Pin To Net: NetName=Current_ADC Pin=Q1-3
+Added Pin To Net: NetName=NetQ1_4 Pin=Q1-4
+Added Pin To Net: NetName=Negative Pin=Q1-5
+Added Pin To Net: NetName=Current_ADC Pin=Q2-1
+Added Pin To Net: NetName=Current_ADC Pin=Q2-2
+Added Pin To Net: NetName=Current_ADC Pin=Q2-3
+Added Pin To Net: NetName=NetQ1_4 Pin=Q2-4
+Added Pin To Net: NetName=Negative Pin=Q2-5
+Added Pin To Net: NetName=GND Pin=R4-1
+Added Pin To Net: NetName=Current_ADC Pin=R4-2
+Added Pin To Net: NetName=5V Pin=REG1-1
+Added Pin To Net: NetName=GND Pin=REG1-2
+Added Pin To Net: NetName=3S-6S Pin=REG1-3
+Added Pin To Net: NetName=GND Pin=REG2-1
+Added Pin To Net: NetName=3.3V Pin=REG2-2
+Added Pin To Net: NetName=5V Pin=REG2-3
+Added Pin To Net: NetName=NetR9_1 Pin=U1-1
+Added Pin To Net: NetName=NRST Pin=U1-6
+Added Pin To Net: NetName=GND Pin=U1-7
+Added Pin To Net: NetName=3.3V Pin=U1-9
+Added Pin To Net: NetName=NetU1_11 Pin=U1-11
+Added Pin To Net: NetName=NetU1_12 Pin=U1-12
+Added Pin To Net: NetName=Volt_ADC Pin=U1-14
+Added Pin To Net: NetName=HallOut2 Pin=U1-15
+Added Pin To Net: NetName=HallOut1 Pin=U1-16
+Added Pin To Net: NetName=SWIM Pin=U1-18
+Added Pin To Net: NetName=Opamp_ADC Pin=U1-19
+Added Pin To Net: NetName=3.3V Pin=U2-1
+Added Pin To Net: NetName=NetU1_11 Pin=U2-2
+Added Pin To Net: NetName=NetU1_12 Pin=U2-3
+Added Pin To Net: NetName=GND Pin=U2-4
+Added Pin To Net: NetName=NetR11_2 Pin=U3-1
+Added Pin To Net: NetName=NetR11_2 Pin=U3-2
+Added Pin To Net: NetName=Current_ADC Pin=U3-3
+Added Pin To Net: NetName=GND Pin=U3-4
+Added Pin To Net: NetName=3.3V Pin=U3-8
+Added Member To Class: ClassName=sch Member=Component C7 4.7nF
+Added Member To Class: ClassName=sch Member=Component IC3 TLP152
+Added Member To Class: ClassName=sch Member=Component J1 XT60 Male
+Added Member To Class: ClassName=sch Member=Component Q1 BSC032NE2LS
+Added Member To Class: ClassName=sch Member=Component Q2 BSC032NE2LS
+Added Member To Class: ClassName=sch Member=Component R4 0.0003R
+Added Member To Class: ClassName=sch Member=Component REG1 L78L05ABUTR SOT-89-3
+Added Member To Class: ClassName=sch Member=Component REG2 AMS1117
+Added Member To Class: ClassName=sch Member=Component U1 STM8S103F3P6 TSSOP-20
+Added Member To Class: ClassName=sch Member=Component U2 ISO1541DR
+Added Member To Class: ClassName=sch Member=Component U3 LM358 - SMD

@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=3S-6S Pin=REG1-1
+Removed Pin From Net: NetName=5V Pin=REG1-3
+Change Component Footprint: Designator=REG1 Old Footprint=SOT-223 New Footprint=SOT89-3
+Change Component Comment : Designator=REG1 Old Comment=LM7805MP/NOPB New Comment=L78L05ABUTR SOT-89-3
+Added Pin To Net: NetName=5V Pin=REG1-1
+Added Pin To Net: NetName=3S-6S Pin=REG1-3

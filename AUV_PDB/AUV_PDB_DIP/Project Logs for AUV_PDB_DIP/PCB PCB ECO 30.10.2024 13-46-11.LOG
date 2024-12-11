@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=NetR2_1 Pin=R4-1
+Removed Pin From Net: NetName=NetQ1_1 Pin=R4-2
+Removed Member From Class: ClassName=Sch Member=R4
+Change Component Comment : Designator=C2 Old Comment=0.01uF New Comment=pF
+Change Component Comment : Designator=C1 Old Comment=0.33uF New Comment=pF
+Change Component Comment : Designator=C3 Old Comment=4.7nF New Comment=pF
+Change Component Comment : Designator=R5 Old Comment=10K New Comment=ohm
+Change Component Comment : Designator=R2 Old Comment=10R New Comment=ohm
+Change Component Comment : Designator=C4 Old Comment=100nF New Comment=pF
+Change Component Comment : Designator=R1 Old Comment=500 New Comment=ohm
+Change Component Comment : Designator=R3 Old Comment=500 New Comment=ohm

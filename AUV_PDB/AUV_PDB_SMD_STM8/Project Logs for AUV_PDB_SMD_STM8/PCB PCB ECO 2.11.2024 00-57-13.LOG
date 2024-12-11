@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=NRST Pin=B1-0
+Removed Pin From Net: NetName=GND Pin=B1-1
+Removed Pin From Net: NetName=NRST Pin=C10-1
+Removed Pin From Net: NetName=GND Pin=C10-2
+Removed Pin From Net: NetName=GND Pin=D4-C
+Removed Pin From Net: NetName=NRST Pin=R10-1
+Removed Pin From Net: NetName=3.3V Pin=R10-2
+Removed Pin From Net: NetName=3.3V Pin=R13-2
+Removed Member From Class: ClassName=sch Member=B1
+Removed Member From Class: ClassName=sch Member=C10
+Removed Member From Class: ClassName=sch Member=D4
+Removed Member From Class: ClassName=sch Member=R10
+Removed Member From Class: ClassName=sch Member=R13

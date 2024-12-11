@@ -1,0 +1,5 @@
+Added Component: Designator=Q1(TO-220)
+Added Pin To Net: NetName=NetQ1_1 Pin=Q1-1
+Added Pin To Net: NetName=Negative Pin=Q1-2
+Added Pin To Net: NetName=GND Pin=Q1-3
+Added Member To Class: ClassName=Sch Member=Component Q1 TO-220 IRF1405

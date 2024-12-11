@@ -1,0 +1,176 @@
+Added Component: Designator=B1(SMD TACT SWITCH BUTTON)
+Added Component: Designator=C2(0805 SMD CAP)
+Added Component: Designator=C4(0805 SMD CAP)
+Added Component: Designator=C7(0805 SMD CAP)
+Added Component: Designator=C8(0805 SMD CAP)
+Added Component: Designator=C10(0805 SMD CAP)
+Added Component: Designator=D2(0805 SMD LED)
+Added Component: Designator=D3(0805 SMD LED)
+Added Component: Designator=D4(0805 SMD LED)
+Added Component: Designator=IC2(UA)
+Added Component: Designator=IC3(SOIC-6)
+Added Component: Designator=J1(XT60 Male Pin)
+Added Component: Designator=J2(B4B-XH-A (LF)(SN))
+Added Component: Designator=J3(CON1x2_2.54MM)
+Added Component: Designator=J4(B4B-XH-A (LF)(SN))
+Added Component: Designator=Q1(TDSON-8)
+Added Component: Designator=Q2(TDSON-8)
+Added Component: Designator=R1(0805 SMD RES)
+Added Component: Designator=R4(RES 2512 SMD)
+Added Component: Designator=R5(0805 SMD RES)
+Added Component: Designator=R6(0805 SMD RES)
+Added Component: Designator=R7(0805 SMD RES)
+Added Component: Designator=R8(0805 SMD RES)
+Added Component: Designator=R9(0805 SMD RES)
+Added Component: Designator=R10(0805 SMD RES)
+Added Component: Designator=R11(0805 SMD RES)
+Added Component: Designator=R12(0805 SMD RES)
+Added Component: Designator=R13(0805 SMD RES)
+Added Component: Designator=R14(0805 SMD RES)
+Added Component: Designator=R15(0805 SMD RES)
+Added Component: Designator=REG1(SOT-223)
+Added Component: Designator=REG2(SOT-223)
+Added Component: Designator=U1(TSSOP-20)
+Added Component: Designator=U2(SOIC-8)
+Added Component: Designator=U3(SOIC-8)
+Added Pin To Net: NetName=NRST Pin=B1-0
+Added Pin To Net: NetName=GND Pin=B1-1
+Added Pin To Net: NetName=5V Pin=C2-1
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=3S-6S Pin=C4-1
+Added Pin To Net: NetName=GND Pin=C4-2
+Added Pin To Net: NetName=HallOut Pin=C7-1
+Added Pin To Net: NetName=NetC7_2 Pin=C7-2
+Added Pin To Net: NetName=NetC8_1 Pin=C8-1
+Added Pin To Net: NetName=NetC7_2 Pin=C8-2
+Added Pin To Net: NetName=NRST Pin=C10-1
+Added Pin To Net: NetName=GND Pin=C10-2
+Added Pin To Net: NetName=NetD2_A Pin=D2-A
+Added Pin To Net: NetName=GND Pin=D2-C
+Added Pin To Net: NetName=NetD3_A Pin=D3-A
+Added Pin To Net: NetName=GND Pin=D3-C
+Added Pin To Net: NetName=NetD4_A Pin=D4-A
+Added Pin To Net: NetName=GND Pin=D4-C
+Added Pin To Net: NetName=5V Pin=IC2-1
+Added Pin To Net: NetName=HallOut Pin=IC2-2
+Added Pin To Net: NetName=NetC7_2 Pin=IC2-3
+Added Pin To Net: NetName=NetR6_2 Pin=IC3-1
+Added Pin To Net: NetName=GND Pin=IC3-3
+Added Pin To Net: NetName=GND Pin=IC3-4
+Added Pin To Net: NetName=NetR5_1 Pin=IC3-5
+Added Pin To Net: NetName=3S-6S Pin=IC3-6
+Added Pin To Net: NetName=GND Pin=J1-N
+Added Pin To Net: NetName=3S-6S Pin=J1-P
+Added Pin To Net: NetName=NRST Pin=J2-1
+Added Pin To Net: NetName=GND Pin=J2-2
+Added Pin To Net: NetName=SWIM Pin=J2-3
+Added Pin To Net: NetName=3.3V Pin=J2-4
+Added Pin To Net: NetName=HallOut1 Pin=J3-1
+Added Pin To Net: NetName=HallOut2 Pin=J3-2
+Added Pin To Net: NetName=NetJ4_1 Pin=J4-1
+Added Pin To Net: NetName=NetJ4_2 Pin=J4-2
+Added Pin To Net: NetName=NetJ4_3 Pin=J4-3
+Added Pin To Net: NetName=NetJ4_4 Pin=J4-4
+Added Pin To Net: NetName=Current_ADC Pin=Q1-1
+Added Pin To Net: NetName=Current_ADC Pin=Q1-2
+Added Pin To Net: NetName=Current_ADC Pin=Q1-3
+Added Pin To Net: NetName=NetQ1_4 Pin=Q1-4
+Added Pin To Net: NetName=Current_ADC Pin=Q2-1
+Added Pin To Net: NetName=Current_ADC Pin=Q2-2
+Added Pin To Net: NetName=Current_ADC Pin=Q2-3
+Added Pin To Net: NetName=NetQ1_4 Pin=Q2-4
+Added Pin To Net: NetName=5V Pin=R1-1
+Added Pin To Net: NetName=NetC8_1 Pin=R1-2
+Added Pin To Net: NetName=GND Pin=R4-1
+Added Pin To Net: NetName=Current_ADC Pin=R4-2
+Added Pin To Net: NetName=NetR5_1 Pin=R5-1
+Added Pin To Net: NetName=NetQ1_4 Pin=R5-2
+Added Pin To Net: NetName=HallOut2 Pin=R6-1
+Added Pin To Net: NetName=NetR6_2 Pin=R6-2
+Added Pin To Net: NetName=NetR5_1 Pin=R7-1
+Added Pin To Net: NetName=NetQ1_4 Pin=R7-2
+Added Pin To Net: NetName=NetD2_A Pin=R8-1
+Added Pin To Net: NetName=HallOut2 Pin=R8-2
+Added Pin To Net: NetName=NetR9_1 Pin=R9-1
+Added Pin To Net: NetName=NetD3_A Pin=R9-2
+Added Pin To Net: NetName=NRST Pin=R10-1
+Added Pin To Net: NetName=3.3V Pin=R10-2
+Added Pin To Net: NetName=GND Pin=R11-1
+Added Pin To Net: NetName=Opamp_ADC Pin=R12-1
+Added Pin To Net: NetName=NetD4_A Pin=R13-1
+Added Pin To Net: NetName=3.3V Pin=R13-2
+Added Pin To Net: NetName=3S-6S Pin=R14-1
+Added Pin To Net: NetName=Volt_ADC Pin=R14-2
+Added Pin To Net: NetName=Volt_ADC Pin=R15-1
+Added Pin To Net: NetName=GND Pin=R15-2
+Added Pin To Net: NetName=3S-6S Pin=REG1-1
+Added Pin To Net: NetName=GND Pin=REG1-2
+Added Pin To Net: NetName=5V Pin=REG1-3
+Added Pin To Net: NetName=GND Pin=REG2-1
+Added Pin To Net: NetName=3.3V Pin=REG2-2
+Added Pin To Net: NetName=5V Pin=REG2-3
+Added Pin To Net: NetName=NetR9_1 Pin=U1-1
+Added Pin To Net: NetName=NRST Pin=U1-6
+Added Pin To Net: NetName=GND Pin=U1-7
+Added Pin To Net: NetName=3.3V Pin=U1-9
+Added Pin To Net: NetName=NetU1_11 Pin=U1-11
+Added Pin To Net: NetName=NetU1_12 Pin=U1-12
+Added Pin To Net: NetName=Volt_ADC Pin=U1-14
+Added Pin To Net: NetName=HallOut2 Pin=U1-15
+Added Pin To Net: NetName=HallOut1 Pin=U1-16
+Added Pin To Net: NetName=SWIM Pin=U1-18
+Added Pin To Net: NetName=Opamp_ADC Pin=U1-19
+Added Pin To Net: NetName=3.3V Pin=U2-1
+Added Pin To Net: NetName=NetU1_11 Pin=U2-2
+Added Pin To Net: NetName=NetU1_12 Pin=U2-3
+Added Pin To Net: NetName=GND Pin=U2-4
+Added Pin To Net: NetName=NetJ4_4 Pin=U2-5
+Added Pin To Net: NetName=NetJ4_3 Pin=U2-6
+Added Pin To Net: NetName=NetJ4_2 Pin=U2-7
+Added Pin To Net: NetName=NetJ4_1 Pin=U2-8
+Added Pin To Net: NetName=Current_ADC Pin=U3-3
+Added Pin To Net: NetName=GND Pin=U3-4
+Added Pin To Net: NetName=3.3V Pin=U3-8
+Added Pin To Net: NetName=Negative Pin=Q1-5
+Added Pin To Net: NetName=Negative Pin=Q2-5
+Added Net: Name=Negative
+Added Pin To Net: NetName=NetR11_2 Pin=R11-2
+Added Pin To Net: NetName=NetR11_2 Pin=R12-2
+Added Pin To Net: NetName=NetR11_2 Pin=U3-1
+Added Pin To Net: NetName=NetR11_2 Pin=U3-2
+Added Net: Name=NetR11_2
+Added Member To Class: ClassName=sch Member=Component B1 Buton
+Added Member To Class: ClassName=sch Member=Component C2 0.1uF
+Added Member To Class: ClassName=sch Member=Component C4 0.22uF
+Added Member To Class: ClassName=sch Member=Component C7 4.7nF
+Added Member To Class: ClassName=sch Member=Component C8 100nF
+Added Member To Class: ClassName=sch Member=Component C10 0.1uF
+Added Member To Class: ClassName=sch Member=Component D2 Red
+Added Member To Class: ClassName=sch Member=Component D3 Red
+Added Member To Class: ClassName=sch Member=Component D4 Red
+Added Member To Class: ClassName=sch Member=Component IC2 US1881
+Added Member To Class: ClassName=sch Member=Component IC3 TLP152
+Added Member To Class: ClassName=sch Member=Component J1 XT60 Male
+Added Member To Class: ClassName=sch Member=Component J2 B4B-XH-A (LF)(SN)
+Added Member To Class: ClassName=sch Member=Component J3 1x2 CONN
+Added Member To Class: ClassName=sch Member=Component J4 B4B-XH-A (LF)(SN)
+Added Member To Class: ClassName=sch Member=Component Q1 BSC032NE2LS
+Added Member To Class: ClassName=sch Member=Component Q2 BSC032NE2LS
+Added Member To Class: ClassName=sch Member=Component R1 10K
+Added Member To Class: ClassName=sch Member=Component R4 0.003R
+Added Member To Class: ClassName=sch Member=Component R5 10R
+Added Member To Class: ClassName=sch Member=Component R6 220R
+Added Member To Class: ClassName=sch Member=Component R7 10R
+Added Member To Class: ClassName=sch Member=Component R8 500R
+Added Member To Class: ClassName=sch Member=Component R9 1K
+Added Member To Class: ClassName=sch Member=Component R10 10K
+Added Member To Class: ClassName=sch Member=Component R11 1K
+Added Member To Class: ClassName=sch Member=Component R12 7K
+Added Member To Class: ClassName=sch Member=Component R13 330R
+Added Member To Class: ClassName=sch Member=Component R14 10K
+Added Member To Class: ClassName=sch Member=Component R15 1K
+Added Member To Class: ClassName=sch Member=Component REG1 LM7805MP/NOPB
+Added Member To Class: ClassName=sch Member=Component REG2 AMS1117
+Added Member To Class: ClassName=sch Member=Component U1 STM8S103F3P6 TSSOP-20
+Added Member To Class: ClassName=sch Member=Component U2 ISO1541DR
+Added Member To Class: ClassName=sch Member=Component U3 LM358 - SMD
