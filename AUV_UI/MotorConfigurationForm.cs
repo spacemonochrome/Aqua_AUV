@@ -163,6 +163,7 @@ namespace AUV_UI
                         Buton_Kaydi_Sil.Enabled = true;
                         motorKonum[7] = "0";
                         motorKonum[6] = "0";
+                        Yon_Hareket_Kaydet.Enabled=true;
                     }
                     else
                     {
@@ -170,7 +171,8 @@ namespace AUV_UI
                         Array.Clear(motorKonum, 0, motorKonum.Length);
                         for (int j = 0; j < ComboBoxlerMotor.Length; j++) { ComboBoxlerMotor[j].Enabled = false; }
                         pictureBox8.Image = Properties.Resources.rederror;
-                        break;
+                        Yon_Hareket_Kaydet.Enabled = false;
+                        break;                        
                     }
                 }
             }
@@ -189,6 +191,7 @@ namespace AUV_UI
                         comboBox_Hareket_Tanimla.Enabled = true;
                         Yon_Hareket_Kaydet.Enabled = true;
                         Buton_Kaydi_Sil.Enabled = true;
+                        Yon_Hareket_Kaydet.Enabled = true;
                     }
                     else
                     {
@@ -196,6 +199,7 @@ namespace AUV_UI
                         Array.Clear(motorKonum, 0, motorKonum.Length);
                         for (int j = 0; j < ComboBoxlerMotor.Length; j++) { ComboBoxlerMotor[j].Enabled = false; }
                         pictureBox8.Image = Properties.Resources.rederror;
+                        Yon_Hareket_Kaydet.Enabled = false;
                         break;
                     }
                 }
@@ -262,8 +266,7 @@ namespace AUV_UI
             {
                 duzyazi = duzyazi + bellek[i] + Environment.NewLine;
             }
-            string dosya_yolu = AppDomain.CurrentDomain.BaseDirectory + "rov_log/Motor_Conf.txt";
-            File.WriteAllText(dosya_yolu, duzyazi);
+            File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "Motor_Conf.txt", duzyazi);
         }
     
         private void MotorYonSelected(object sender, EventArgs e)
@@ -346,6 +349,8 @@ namespace AUV_UI
                 label1.Text = "";
                 pictureBox1.Image = null;
                 Motor_Konum_Kaydet.Enabled = false;
+
+                //for (int i = 0; i < ComboBoxlerYon.Length; i++) { ComboBoxlerYon[i].SelectedIndex = 0; }
             }
             if (MotorDuzeni.SelectedIndex == 1)
             {
@@ -369,10 +374,16 @@ namespace AUV_UI
                 label16.Text = "M6";
                 label17.Text = "";
                 label1.Text = "";
-                for (int i = 0; i < ComboBoxlerMotor.Length - 2; i++){ComboBoxlerMotor[i].Visible = true;}
+                for (int i = 0; i < ComboBoxlerYon.Length; i++) { ComboBoxlerYon[i].SelectedIndex = 0; }
+                for (int i = 0; i < ComboBoxlerMotor.Length; i++) { ComboBoxlerMotor[i].SelectedIndex = 0; }
+                for (int i = 0; i < ComboBoxlerMotor.Length - 2; i++){ComboBoxlerMotor[i].Visible = true; }
+                for (int i = 0; i < harfler.Length; i++) { harfler[i].ForeColor = Color.Red; }
                 comboBox_Yon_M7.Visible = false;
                 comboBox_Yon_M8.Visible = false;
                 pictureBox1.Image = Properties.Resources.Piri_Reis;
+                bellek = new string[11];
+                motorYon = new string[10] { "", "", "", "", "", "", "", "", "", "" };
+                motorKonum = new string[8];
             }
             else if (MotorDuzeni.SelectedIndex == 2)
             {
@@ -395,8 +406,16 @@ namespace AUV_UI
                 label16.Text = "M6";
                 label17.Text = "M7";
                 label1.Text = "M8";
+
+                for (int i = 0; i < ComboBoxlerYon.Length; i++) { ComboBoxlerYon[i].SelectedIndex = 0; }
+                for (int i = 0; i < ComboBoxlerMotor.Length; i++) { ComboBoxlerMotor[i].SelectedIndex = 0; }
+                for (int i = 0; i < harfler.Length; i++) { harfler[i].ForeColor = Color.Red; }
                 pictureBox1.Image = Properties.Resources.Homeland;
-            }
+
+                bellek = new string[11];
+                motorYon = new string[10] { "", "", "", "", "", "", "", "", "", "" };
+                motorKonum = new string[8];
+    }
         }
     }
 }

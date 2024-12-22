@@ -234,6 +234,7 @@
             // Yon_Hareket_Kaydet
             // 
             this.Yon_Hareket_Kaydet.BackColor = System.Drawing.Color.Transparent;
+            this.Yon_Hareket_Kaydet.Enabled = false;
             this.Yon_Hareket_Kaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Yon_Hareket_Kaydet.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.Yon_Hareket_Kaydet.Location = new System.Drawing.Point(18, 64);

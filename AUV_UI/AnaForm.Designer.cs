@@ -390,7 +390,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::AUV_UI.Properties.Resources.MYS_Logo;
+            this.pictureBox4.Image = global::AUV_UI.Properties.Resources.mys_black_logo;
             this.pictureBox4.Location = new System.Drawing.Point(174, 168);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(155, 156);
@@ -486,7 +486,7 @@
             this.MaximizeBox = false;
             this.Name = "AnaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AUV Kontrol İstasyonu";
+            this.Text = "AquaDesk AUV Kontrol İstasyonu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AnaForm_Closing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
@@ -506,41 +506,41 @@
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.TextBox komut_satiri;
-        private System.Windows.Forms.TextBox password_label;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox username_label;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox ipadress_label;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button config_button;
-        private System.Windows.Forms.Button islemi_Durdur;
-        private System.Windows.Forms.Button alincak;
-        private System.Windows.Forms.Button Dosya_Yolu_Degistir;
-        private System.Windows.Forms.Button dosya_gonder;
-        private System.Windows.Forms.Button desktop_listesi;
-        private System.Windows.Forms.Button baglantiyi_kes;
-        private System.Windows.Forms.Button komutu_calistir;
-        private System.Windows.Forms.Button baglan;
+        public System.Windows.Forms.PictureBox pictureBox10;
+        public System.Windows.Forms.PictureBox pictureBox7;
+        public System.Windows.Forms.PictureBox pictureBox9;
+        public System.Windows.Forms.PictureBox pictureBox8;
+        public System.Windows.Forms.PictureBox pictureBox6;
+        public System.Windows.Forms.PictureBox pictureBox5;
+        public System.Windows.Forms.ProgressBar progressBar1;
+        public System.Windows.Forms.PictureBox pictureBox3;
+        public System.Windows.Forms.PictureBox pictureBox2;
+        public System.Windows.Forms.PictureBox pictureBox4;
+        public System.Windows.Forms.TextBox komut_satiri;
+        public System.Windows.Forms.TextBox password_label;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.TextBox username_label;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.TextBox ipadress_label;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Button config_button;
+        public System.Windows.Forms.Button islemi_Durdur;
+        public System.Windows.Forms.Button alincak;
+        public System.Windows.Forms.Button Dosya_Yolu_Degistir;
+        public System.Windows.Forms.Button dosya_gonder;
+        public System.Windows.Forms.Button desktop_listesi;
+        public System.Windows.Forms.Button baglantiyi_kes;
+        public System.Windows.Forms.Button komutu_calistir;
+        public System.Windows.Forms.Button baglan;
         public System.Windows.Forms.TextBox terminal;
-        private System.Windows.Forms.Button ControlPanelButton;
-        private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox12;
+        public System.Windows.Forms.Button ControlPanelButton;
+        public System.Windows.Forms.PictureBox pictureBox11;
+        public System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.PictureBox pictureBox12;
     }
 }
 

@@ -24,20 +24,24 @@ namespace AUV_UI
         public string gidenValue;
         public TrackBar[] traklar;
         public TextBox[] trakboxlar;
-        
+
+        public ShellStream TelemetriShell = null;
+
         public bool devamlilik_Sensor = false;
         public string Telemstring;
-        private float[] TelemTemp = new float[12] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0, 0 };
+        private float?[] TelemTemp = new float?[12] {null, null , null , null , null , null , null , null , null , null , null , null };
+
+        private bool isRunning = false;
 
         public System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer timer2;
         private int currentX1, currentX2, currentX3, currentX4;
         public ControlPanel(AnaForm ana)
         {
             InitializeComponent();
-            Ana = ana;
+            this.Ana = ana;
             traklar = new TrackBar[12] { trackBar1, trackBar2, trackBar3, trackBar4, trackBar5, trackBar6, trackBar7, trackBar8, trackBar9, trackBar10, trackBar11, trackBar12 };
             trakboxlar = new TextBox[12] { M1Value, M2Value, M3Value, M4Value, M5Value, M6Value, M7Value, M8Value, M9Value, M10Value, M11Value, M12Value };
+            
             InitializeChartTemp();
             InitializeChartGyro();
             InitializeChartAccel();
@@ -124,78 +128,49 @@ namespace AUV_UI
             }
         }
 
-        private void MTP_islemi_gerceklestir()
+        private async void TelemetriVeriGonder()
         {
             try
             {
-                gidenValue = "";
-                for (int i = 0; i < traklar.Length; i++)
+                while (isRunning)
                 {
-                    int trackBarValue = 0;
-                    if (traklar[i].InvokeRequired)
+                    gidenValue = "";
+                    for (int i = 0; i < traklar.Length; i++)
                     {
-                        trackBarValue = (int)traklar[i].Invoke(new Func<int>(() => traklar[i].Value));
-                    }
-                    else
-                    {
-                        trackBarValue = traklar[i].Value;
-                    }
-                    gidenValue = gidenValue + Convert.ToInt32(((trackBarValue - 1000)/5) +25) + ",";
-                }
-                byte[] TestMotorSayisalRTbyte = Encoding.UTF8.GetBytes(gidenValue);
-                using (var memoryStream = new MemoryStream(TestMotorSayisalRTbyte))
-                {
-                    Ana.RaspiSFTPClient.UploadFile(memoryStream, Path.GetFileName("TestMotorSayisalRT.txt"));
-                }
-
-                using (var memoryStream = new MemoryStream())
-                {
-                    Ana.RaspiSFTPClient.DownloadFile(Ana.raspi_dosya_yolu_Gonder + "/telemetri_verisi.txt", memoryStream);
-
-                    memoryStream.Seek(0, SeekOrigin.Begin);
-                    using (var reader = new StreamReader(memoryStream, Encoding.UTF8))
-                    {
-                        string a = reader.ReadToEnd();
-                        if (this.InvokeRequired && !string.IsNullOrEmpty(a))
+                        int trackBarValue = 0;
+                        if (traklar[i].InvokeRequired)
                         {
-                            this.Invoke(new Action(() =>
-                            {
-                                string[] sonuc = a.Split(',');
-                                for (int i = 0; i < TelemTemp.Length; i++)
-                                {
-                                    if (float.TryParse(sonuc[i], NumberStyles.Float, CultureInfo.InvariantCulture, out float floatValue))
-                                    {
-                                        TelemTemp[i] = floatValue;
-                                    }
-                                    else
-                                    {
-                                        TelemTemp[i] = 0;
-                                    }
-                                }
-                                Telemstring = a;
-                                label3.Text = a;
-                            }));
+                            trackBarValue = (int)traklar[i].Invoke(new Func<int>(() => traklar[i].Value));
                         }
+                        else
+                        {
+                            trackBarValue = traklar[i].Value;
+                        }
+                        gidenValue = gidenValue + Convert.ToInt32(((trackBarValue - 1000) / 5) + 25) + ",";
                     }
+                    byte[] TestMotorSayisalRTbyte = Encoding.UTF8.GetBytes(gidenValue);
+                    using (var memoryStream = new MemoryStream(TestMotorSayisalRTbyte))
+                    {
+                        Ana.RaspiSFTPClient.UploadFile(memoryStream, Path.GetFileName("TestMotorSayisalRT.txt"));
+                    }
+                    await Task.Delay(10);
                 }
             }
-            catch(Exception ex){ MessageBox.Show(ex.Message); sistemi_durdur(null, null); }            
+            catch (Exception ex) { MessageBox.Show(ex.Message); sistemi_durdur(null, null); }
         }
 
         private void MTPB_Click(object sender, EventArgs e)
         {
             if (MTPB.Tag.ToString() == "T")
             {
-                sistemi_calistir(sender, e);
-
-                
+                sistemi_calistir(sender, e);                
             }
             else if (MTPB.Tag.ToString() == "F")
             {
                 sistemi_durdur(sender, e);
             }
         }
-        private void sistemi_calistir(object sender, EventArgs e)
+        private async void sistemi_calistir(object sender, EventArgs e)
         {
             Zero_Click(sender, e);
             MTPB.Text = "Motor Test Panelini Durdur";
@@ -217,16 +192,86 @@ namespace AUV_UI
                     Ana.RaspiSFTPClient.ChangeDirectory(Ana.raspi_dosya_yolu_Gonder);
                     Ana.RaspiSFTPClient.UploadFile(memoryStream, Path.GetFileName("Telem.py"));
                     Ana.terminal.Text += "Telem.py" + " dosyası;" + Environment.NewLine + Ana.raspi_dosya_yolu_Gonder + " adresine yüklendi" + Environment.NewLine;
-                }
-                string output;
-                Match match;
+                }                
 
                 string guzergah = "python " + Ana.raspi_dosya_yolu_Gonder + "/Telem.py & echo C$!C; wait $!";
                 Ana.shellStream.WriteLine(guzergah);
-                InitializeTimer1();
-                InitializeTimer2();
+
+                isRunning = true;
+                TelemetriShell = Ana.RaspiSSHClient.CreateShellStream("xterm", 80, 24, 800, 600, 4096);
+                await Task.Delay(100);
+
+                TelemetriShell.WriteLine("python Desktop/Telem.py & echo C$!C; wait $!");
+
+                Tekilfonk();
+                TelemetriVeriGonder();
+
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); sistemi_durdur(null,null); }
+        }
+
+        private async void Tekilfonk()
+        {
+            try
+            {
+                string output;
+                await Task.Run(() =>
+                {
+                    while (Ana.RaspiSSHClient != null)
+                    {
+                        output = TelemetriShell.ReadLine() + "\n";
+                        if (!string.IsNullOrEmpty(output))
+                        {
+                            Match match;
+                            match = Regex.Match(output, @"C(\d+)C");
+                            if (match.Success)
+                            {
+                                Invoke(new Action(() =>
+                                {
+                                    Ana.terminal.AppendText(Environment.NewLine + " Telemetri akışı islem kodu " + match.Groups[1].Value + Environment.NewLine);
+                                    Ana.currentProcessId = match.Groups[1].Value;
+                                    Ana.islemi_Durdur.Enabled = true;
+                                    Ana.komutu_calistir.Enabled = false;
+                                    Ana.ControlPanelButton.Enabled = false;
+                                }));
+                                break;
+                            }                                                        
+                        }
+                    }
+                    while (Ana.RaspiSSHClient != null && TelemetriShell != null)
+                    {
+                        output = TelemetriShell.ReadLine() + "\n";
+                        if (!string.IsNullOrEmpty(output))
+                        {
+                            if (true)
+                            {
+                                
+                            }
+                            Invoke(new Action(() =>
+                            {
+                                Ana.terminal.Text = output;
+                            }));
+                            string[] sonuc = output.Split(',');
+                            for (int i = 0; i < TelemTemp.Length; i++)
+                            {
+                                if (float.TryParse(sonuc[i], NumberStyles.Float, CultureInfo.InvariantCulture, out float floatValue))
+                                {
+                                    TelemTemp[i] = floatValue;
+                                }
+                                else
+                                {
+                                    TelemTemp[i] = null;
+                                }
+                            }
+                            Telemstring = output;
+
+                            ChartDegerGuncelleme();
+                        }
+                    }                     
+                        
+                });
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void sistemi_durdur(object sender, EventArgs e)
@@ -237,44 +282,19 @@ namespace AUV_UI
             Zero_Click(sender, e);
             try
             {
-                timer1.Stop();
-                timer2.Stop();
+                isRunning = false;                
                 Ana.islemi_Durdur_Click(sender, e);
+                TelemetriShell = null;
             }
             catch(Exception ex){ MessageBox.Show(ex.Message); }
         }
-
-        private void InitializeTimer1()
+                
+        private async void ChartDegerGuncelleme()
         {
-            timer1 = new System.Windows.Forms.Timer();
-            timer1.Interval = 100;
-            timer1.Tick += async (sender, e) => await Timer1TickAsync();
-            timer1.Start();
-        }
-
-        private async Task Timer1TickAsync()
-        {
-            await Task.Run(() =>
-            {
-                MTP_islemi_gerceklestir();
-            });
-        }
-
-        private void InitializeTimer2()
-        {
-            // Zamanlayıcı ayarları
-            timer2 = new System.Windows.Forms.Timer();
-            timer2.Interval = 100;
-            timer2.Tick += Timer_Tick2;
-            timer2.Start();
-        }        
-
-        private void Timer_Tick2(object sender, EventArgs e)
-        {
-
-            if (TelemTemp[9] != 0) { sicaklik.Series[0].Points.AddXY(currentX1, TelemTemp[9]); }
-            if (TelemTemp[10] != 0) { sicaklik.Series[1].Points.AddXY(currentX1, TelemTemp[10]); }
-            if (TelemTemp[11] != 0) { sicaklik.Series[2].Points.AddXY(currentX1, TelemTemp[11]); }
+            Invoke(new Action(() => {
+                if (TelemTemp[9] != null) { sicaklik.Series[0].Points.AddXY(currentX1, TelemTemp[9]); }
+            if (TelemTemp[10] != null) { sicaklik.Series[1].Points.AddXY(currentX1, TelemTemp[10]); }
+            if (TelemTemp[11] != null) { sicaklik.Series[2].Points.AddXY(currentX1, TelemTemp[11]); }
             currentX1 += 1;
 
             sicaklik.ChartAreas[0].AxisY.Maximum = Double.NaN;
@@ -294,9 +314,9 @@ namespace AUV_UI
                 }
             }
 
-            if (TelemTemp[0] != 0) { Accel.Series[0].Points.AddXY(currentX2, TelemTemp[0]); }
-            if (TelemTemp[1] != 0) { Accel.Series[1].Points.AddXY(currentX2, TelemTemp[1]); }
-            if (TelemTemp[2] != 0) { Accel.Series[2].Points.AddXY(currentX2, TelemTemp[2]); }
+            if (TelemTemp[0] != null) { Accel.Series[0].Points.AddXY(currentX2, TelemTemp[0]); }
+            if (TelemTemp[1] != null) { Accel.Series[1].Points.AddXY(currentX2, TelemTemp[1]); }
+            if (TelemTemp[2] != null) { Accel.Series[2].Points.AddXY(currentX2, TelemTemp[2]); }
             currentX2 += 1;
 
             Accel.ChartAreas[0].AxisY.Maximum = Double.NaN;
@@ -316,9 +336,9 @@ namespace AUV_UI
                 }
             }
 
-            if (TelemTemp[3] != 0) { Gyro.Series[0].Points.AddXY(currentX3, TelemTemp[3]); }
-            if (TelemTemp[4] != 0) { Gyro.Series[1].Points.AddXY(currentX3, TelemTemp[4]); }
-            if (TelemTemp[5] != 0) { Gyro.Series[2].Points.AddXY(currentX3, TelemTemp[5]); }
+            if (TelemTemp[3] != null) { Gyro.Series[0].Points.AddXY(currentX3, TelemTemp[3]); }
+            if (TelemTemp[4] != null) { Gyro.Series[1].Points.AddXY(currentX3, TelemTemp[4]); }
+            if (TelemTemp[5] != null) { Gyro.Series[2].Points.AddXY(currentX3, TelemTemp[5]); }
             currentX3 += 1;
 
             Gyro.ChartAreas[0].AxisY.Maximum = Double.NaN;
@@ -338,24 +358,48 @@ namespace AUV_UI
                 }
             }
 
+            if (TelemTemp[6] != null) { Pusula.Series[0].Points.AddXY(currentX4, TelemTemp[6]); }
+            if (TelemTemp[7] != null) { Pusula.Series[1].Points.AddXY(currentX4, TelemTemp[7]); }
+            if (TelemTemp[8] != null) { Pusula.Series[2].Points.AddXY(currentX4, TelemTemp[8]); }
+            currentX4 += 1;
+
+            Pusula.ChartAreas[0].AxisY.Maximum = Double.NaN;
+            Pusula.ChartAreas[0].AxisY.Minimum = Double.NaN;
+            Pusula.ChartAreas[0].RecalculateAxesScale();
+
+            Pusula.ChartAreas[0].AxisX.Minimum = Math.Max(0, currentX3 - 30); // Başlangıç
+            Pusula.ChartAreas[0].AxisX.Maximum = Math.Max(30, currentX3);     // Bitiş
+            
+            for (int i = 0; i < Pusula.Series.Count; i++)
+            {
+                while (Pusula.Series[i].Points.Count > 0 &&
+                       Pusula.Series[i].Points[0].XValue < currentX4 - 30)
+                {
+                    Pusula.Series[i].Points.RemoveAt(0);
+                }
+            }
+            }));
         }
         private void InitializeChartTemp()
         {
             sicaklik.Series.Clear();
 
-            Series series1 = new Series("Pi °C");
+            Series series1 = new Series("Raspberry Pi °C");
             series1.ChartType = SeriesChartType.Line;
             series1.BorderWidth = 2;
+            series1.Color = System.Drawing.Color.Red;
             sicaklik.Series.Add(series1);
 
-            Series series2 = new Series("STM °C");
+            Series series2 = new Series("STM32 °C");
             series2.ChartType = SeriesChartType.Line;
             series2.BorderWidth = 2;
+            series2.Color = System.Drawing.Color.Blue;
             sicaklik.Series.Add(series2);
 
-            Series series3 = new Series("MPU °C");
+            Series series3 = new Series("MPU9250 °C");
             series3.ChartType = SeriesChartType.Line;
             series3.BorderWidth = 2;
+            series3.Color = System.Drawing.Color.Green;
             sicaklik.Series.Add(series3);
 
             sicaklik.ChartAreas[0].AxisX.Title = "Zaman (saniye)";
@@ -379,20 +423,23 @@ namespace AUV_UI
             Series series1 = new Series("Gx");
             series1.ChartType = SeriesChartType.Line;
             series1.BorderWidth = 2;
+            series1.Color = System.Drawing.Color.Red;
             Gyro.Series.Add(series1);
 
             Series series2 = new Series("Gy");
             series2.ChartType = SeriesChartType.Line;
             series2.BorderWidth = 2;
+            series2.Color = System.Drawing.Color.Blue;
             Gyro.Series.Add(series2);
 
             Series series3 = new Series("Gz");
             series3.ChartType = SeriesChartType.Line;
             series3.BorderWidth = 2;
+            series3.Color = System.Drawing.Color.Green;
             Gyro.Series.Add(series3);
 
             Gyro.ChartAreas[0].AxisX.Title = "Zaman (saniye)";
-            Gyro.ChartAreas[0].AxisY.Title = "m/s";
+            Gyro.ChartAreas[0].AxisY.Title = "°Derece/s";
 
             Gyro.ChartAreas[0].AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
             Gyro.ChartAreas[0].AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
@@ -402,7 +449,7 @@ namespace AUV_UI
             Gyro.ChartAreas[0].AxisX.Maximum = 30; // X ekseninin sonu
 
             Gyro.Titles.Clear();
-            Gyro.Titles.Add("Gyro m/s");
+            Gyro.Titles.Add("Gyro °Derece/s");
 
             currentX3 = 0;
         }
@@ -414,16 +461,19 @@ namespace AUV_UI
             Series series1 = new Series("Ax");
             series1.ChartType = SeriesChartType.Line;
             series1.BorderWidth = 2;
+            series1.Color = System.Drawing.Color.Red;
             Accel.Series.Add(series1);
 
             Series series2 = new Series("Ay");
             series2.ChartType = SeriesChartType.Line;
             series2.BorderWidth = 2;
+            series2.Color = System.Drawing.Color.Blue;
             Accel.Series.Add(series2);
 
             Series series3 = new Series("Az");
             series3.ChartType = SeriesChartType.Line;
             series3.BorderWidth = 2;
+            series3.Color = System.Drawing.Color.Green;
             Accel.Series.Add(series3);
 
             Accel.ChartAreas[0].AxisX.Title = "Zaman (saniye)";
@@ -449,16 +499,19 @@ namespace AUV_UI
             Series series1 = new Series("Cx");
             series1.ChartType = SeriesChartType.Line;
             series1.BorderWidth = 2;
+            series1.Color = System.Drawing.Color.Red;
             Pusula.Series.Add(series1);
 
             Series series2 = new Series("Cy");
             series2.ChartType = SeriesChartType.Line;
             series2.BorderWidth = 2;
+            series2.Color = System.Drawing.Color.Blue;
             Pusula.Series.Add(series2);
 
             Series series3 = new Series("Cz");
             series3.ChartType = SeriesChartType.Line;
             series3.BorderWidth = 2;
+            series3.Color = System.Drawing.Color.Green;
             Pusula.Series.Add(series3);
 
             Pusula.ChartAreas[0].AxisX.Title = "Zaman (saniye)";

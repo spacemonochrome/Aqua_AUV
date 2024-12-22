@@ -153,13 +153,14 @@ def sensor_task():
                 telemetri[4] = gyro_y_dps = convert_gyro_raw_to_dps(gyro_y)
                 telemetri[5] = gyro_z_dps = convert_gyro_raw_to_dps(gyro_z)
                 telemetri[11] = temperature_c = convert_temp_raw_to_celsius(temp_raw)
-                print("-" * 40)
-                print("Giden Veri " + str(TxData) + " \n " + "Gelen veri " + str(RxData) + " \n")
-                print(f"Ivme (m/s^2): X={accel_x_ms2:.2f}, Y={accel_y_ms2:.2f}, Z={accel_z_ms2:.2f}")
-                print(f"Jiroskop (dps): X={gyro_x_dps:.2f}, Y={gyro_y_dps:.2f}, Z={gyro_z_dps:.2f}")
-                print(f"Sicaklik (°C): {temperature_c:.2f}")
-                print("-" * 40)
-                time.sleep(0.05)
+                #print("-" * 40)
+                print(", ".join(map(str, telemetri)))
+                #print("Giden Veri " + str(TxData) + " \n " + "Gelen veri " + str(RxData) + " \n")
+                #print(f"Ivme (m/s^2): X={accel_x_ms2:.2f}, Y={accel_y_ms2:.2f}, Z={accel_z_ms2:.2f}")
+                #print(f"Jiroskop (dps): X={gyro_x_dps:.2f}, Y={gyro_y_dps:.2f}, Z={gyro_z_dps:.2f}")
+                #print(f"Sicaklik (°C): {temperature_c:.2f}")
+                #print("-" * 40)
+                time.sleep(0.02)
 
 if __name__ == '__main__':
         durmasarti = True

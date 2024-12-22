@@ -17,7 +17,6 @@ namespace AUV_UI
 {
     public partial class AnaForm : Form
     {
-
         public string host;
         public string username;
         public string password;
@@ -26,9 +25,8 @@ namespace AUV_UI
         public SshClient RaspiSSHClient = null;
         public SftpClient RaspiSFTPClient = null;
         public ShellStream shellStream = null;
-
+        
         public string currentProcessId;
-        //private BackgroundWorker _backgroundWorker;
 
         public string raspi_dosya_yolu_Gonder;
         public string raspi_dosya_yolu_Al;
@@ -45,53 +43,8 @@ namespace AUV_UI
             password_label.Text = Properties.Settings.Default.Password;
             username_label.Text = Properties.Settings.Default.UserName;
             komut_satiri.Text = Properties.Settings.Default.KomutSatiri;
-
-            //_backgroundWorker = new BackgroundWorker();
-            //_backgroundWorker.WorkerSupportsCancellation = true; // İptal desteği sağla
-            //_backgroundWorker.DoWork += BackgroundWorker_DoWork;
-            //_backgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;
         }
 
-        //private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        //{
-        //    SicaklikOku.ForeColor = Color.Black;
-        //    devamlilik_Sensor = false;
-        //}
-        /*
-        private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            BackgroundWorker worker = sender as BackgroundWorker;
-            while (!worker.CancellationPending)
-            {
-                // Uzun süren işleminiz burada
-                var cmd = RaspiSSHClient.CreateCommand("vcgencmd measure_temp | sed \"s/temp=//;s/'C//\" | tr -d '\\n'");
-                UpdateLabel("Raspberry Pi " + cmd.Execute() + " °C");
-                Thread.Sleep(200); // Örnek: her saniye bir işlem yap
-                // İşlemin ilerlemesini kontrol edebilir veya bir log atabilirsiniz
-            }
-            // İptal edildiğinde, metod burada tamamlanacak
-        }
-
-        
-        private void UpdateLabel(string text)
-        {
-            try
-            {
-                if (label8.InvokeRequired)
-                {
-                    label8.Invoke(new MethodInvoker(() => label8.Text = text));
-                }
-                else
-                {
-                    label8.Text = text;
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }            
-        }
-        */
         public void bilgi_geri_al(string _dosya_yolu, string tag)
         {
             if (tag == "al")
@@ -181,6 +134,7 @@ namespace AUV_UI
                                     currentProcessId = match.Groups[1].Value;
                                     islemi_Durdur.Enabled = true;
                                     komutu_calistir.Enabled = false;
+                                    ControlPanelButton.Enabled = false;
                                 }
 
                                 int startIndex = output.IndexOf("Done");
@@ -188,6 +142,7 @@ namespace AUV_UI
                                 {
                                     islemi_Durdur.Enabled = false;
                                     komutu_calistir.Enabled = true;
+                                    ControlPanelButton.Enabled = true;
                                     terminal.AppendText(Environment.NewLine + "İşlem Bitti" + Environment.NewLine);
                                 }
 
@@ -220,7 +175,6 @@ namespace AUV_UI
                 komutu_calistir.Enabled = false;
                 alincak.Enabled = false;
                 baglan.Enabled = true;
-                //SicaklikOku.Enabled = false;
                 Dosya_Yolu_Degistir.Enabled = false;
             }
             catch(Exception ex) { MessageBox.Show(ex.Message); }
@@ -236,7 +190,6 @@ namespace AUV_UI
 
                 if (folderDialog.ShowDialog() == DialogResult.OK)
                 {
-
                     string selectedPath = folderDialog.SelectedPath;
                     MessageBox.Show("Seçilen yol: " + selectedPath);
                     using (var file = File.Create(selectedPath + "/" + Path.GetFileName(raspi_dosya_yolu_Al)))
@@ -294,24 +247,6 @@ namespace AUV_UI
             Konfigurasyon_Form = new MotorConfigurationForm(this);
             Konfigurasyon_Form.ShowDialog();
         }
-
-        //private void SicaklikOku_Click(object sender, EventArgs e)
-        //{
-        //    Button button = sender as Button;
-        //    if (devamlilik_Sensor)
-        //    {
-        //        _backgroundWorker.CancelAsync();
-        //        button.ForeColor = Color.Black;
-        //        devamlilik_Sensor = false;
-        //        label8.Text = "Raspberry Pi °C";
-        //    }
-        //    else
-        //    {
-        //        button.ForeColor = Color.Green;
-        //        devamlilik_Sensor = true;
-        //        _backgroundWorker.RunWorkerAsync();
-        //    }
-        //}
 
         private void komutu_calistir_Click(object sender, EventArgs e)
         {

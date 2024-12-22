@@ -163,9 +163,29 @@ namespace AUV_UI.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        public static System.Drawing.Bitmap mys_black_logo {
+            get {
+                object obj = ResourceManager.GetObject("mys_black_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         public static System.Drawing.Bitmap MYS_Logo {
             get {
                 object obj = ResourceManager.GetObject("MYS_Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        public static System.Drawing.Bitmap MYS_LogoB {
+            get {
+                object obj = ResourceManager.GetObject("MYS_LogoB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -348,24 +368,26 @@ namespace AUV_UI.Properties {
         ///import smbus
         ///import subprocess
         ///
+        ///MPU9250_ADDRESS = 0x68
+        ///
+        ///# MPU9250 register adresleri
+        ///PWR_MGMT_1 = 0x6B
+        ///ACCEL_XOUT_H = 0x3B
+        ///GYRO_XOUT_H = 0x43
+        ///ACCEL_CONFIG = 0x1C
+        ///GYRO_CONFIG = 0x1B
+        ///TEMP_OUT_H = 0x41
+        ///
+        ///bus = smbus.SMBus(1)
+        ///
         ///dogrulamabyti = 95
         ///durmasarti = False
         ///TxSpwm = [125,125,125,125]
         ///Spwm = [125,125,125,125]
         ///TxMotorverisi = [125,125,125,125,125,125,125,125]
         ///MotorDeger = [125,125,125,125,125,125,125,125]
-        ///
         ///TxData = [None]
-        ///RxData = [None]
-        ///
-        ///telemetri = [None,None,None, None,None,None, None,None,None, None,None,None]
-        ///#Ax, Ay, Az, Gx, Gy, Gz, Px, Py, Pz, Cpi, Cstm, Cmpu
-        ///
-        ///
-        ///bus = smbus.SMBus(1)
-        ///
-        ///ser = serial.Serial(
-        ///        [dizenin kalan bölümü kesildi]&quot;; benzeri yerelleştirilmiş bir dize arar.
+        ///RxData = [dizenin kalan bölümü kesildi]&quot;; benzeri yerelleştirilmiş bir dize arar.
         /// </summary>
         public static string Telem {
             get {

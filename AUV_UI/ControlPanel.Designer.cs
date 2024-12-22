@@ -86,7 +86,6 @@
             this.Accel = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Pusula = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.sicaklik = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar5)).BeginInit();
@@ -577,9 +576,9 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox2.Image = global::AUV_UI.Properties.Resources.pusula;
-            this.pictureBox2.Location = new System.Drawing.Point(139, 265);
+            this.pictureBox2.Location = new System.Drawing.Point(169, 285);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(214, 215);
+            this.pictureBox2.Size = new System.Drawing.Size(187, 178);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 141;
             this.pictureBox2.TabStop = false;
@@ -648,22 +647,11 @@
             this.sicaklik.TabIndex = 146;
             this.sicaklik.Text = "temp";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(23, 730);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 16);
-            this.label3.TabIndex = 147;
-            this.label3.Text = "label3";
-            // 
             // ControlPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1113, 764);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(1113, 706);
             this.Controls.Add(this.sicaklik);
             this.Controls.Add(this.Pusula);
             this.Controls.Add(this.Accel);
@@ -786,6 +774,5 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart Accel;
         private System.Windows.Forms.DataVisualization.Charting.Chart Pusula;
         private System.Windows.Forms.DataVisualization.Charting.Chart sicaklik;
-        private System.Windows.Forms.Label label3;
     }
 }

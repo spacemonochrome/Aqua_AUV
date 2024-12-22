@@ -21,9 +21,9 @@ C:\Users\hasan\source\repos\AUV_UI\bin\Debug\System.Threading.Tasks.Extensions.x
 C:\Users\hasan\source\repos\AUV_UI\obj\Debug\AUV_UI.csproj.Up2Date
 C:\Users\hasan\source\repos\AUV_UI\obj\Debug\AUV_UI.LogWiever.resources
 C:\Users\hasan\source\repos\AUV_UI\obj\Debug\AUV_UI.MotorConfigurationForm.resources
-C:\Users\hasan\Desktop\AUV2025\AUV_UI\bin\Debug\AUV_UI.exe.config
-C:\Users\hasan\Desktop\AUV2025\AUV_UI\bin\Debug\AUV_UI.exe
-C:\Users\hasan\Desktop\AUV2025\AUV_UI\bin\Debug\AUV_UI.pdb
+C:\Users\hasan\Desktop\AUV2025\AUV_UI\bin\Debug\AquaDesk.exe.config
+C:\Users\hasan\Desktop\AUV2025\AUV_UI\bin\Debug\AquaDesk.exe
+C:\Users\hasan\Desktop\AUV2025\AUV_UI\bin\Debug\AquaDesk.pdb
 C:\Users\hasan\Desktop\AUV2025\AUV_UI\bin\Debug\LiveCharts.dll
 C:\Users\hasan\Desktop\AUV2025\AUV_UI\bin\Debug\LiveCharts.Wpf.dll
 C:\Users\hasan\Desktop\AUV2025\AUV_UI\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
@@ -49,5 +49,5 @@ C:\Users\hasan\Desktop\AUV2025\AUV_UI\obj\Debug\AUV_UI.TextBoxMonitor.resources
 C:\Users\hasan\Desktop\AUV2025\AUV_UI\obj\Debug\AUV_UI.csproj.GenerateResource.cache
 C:\Users\hasan\Desktop\AUV2025\AUV_UI\obj\Debug\AUV_UI.csproj.CoreCompileInputs.cache
 C:\Users\hasan\Desktop\AUV2025\AUV_UI\obj\Debug\AUV_UI.csproj.Up2Date
-C:\Users\hasan\Desktop\AUV2025\AUV_UI\obj\Debug\AUV_UI.exe
-C:\Users\hasan\Desktop\AUV2025\AUV_UI\obj\Debug\AUV_UI.pdb
+C:\Users\hasan\Desktop\AUV2025\AUV_UI\obj\Debug\AquaDesk.exe
+C:\Users\hasan\Desktop\AUV2025\AUV_UI\obj\Debug\AquaDesk.pdb
