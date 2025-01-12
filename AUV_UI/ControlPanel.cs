@@ -1,5 +1,4 @@
-﻿using LiveCharts.Wpf.Charts.Base;
-using Renci.SshNet;
+﻿using Renci.SshNet;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +8,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -39,10 +39,10 @@ namespace AUV_UI
             traklar = new TrackBar[12] { trackBar1, trackBar2, trackBar3, trackBar4, trackBar5, trackBar6, trackBar7, trackBar8, trackBar9, trackBar10, trackBar11, trackBar12 };
             trakboxlar = new TextBox[12] { M1Value, M2Value, M3Value, M4Value, M5Value, M6Value, M7Value, M8Value, M9Value, M10Value, M11Value, M12Value };
             
-            InitializeChartTemp();
-            InitializeChartGyro();
-            InitializeChartAccel();
-            InitializeChartCompass();
+            InitializeChart(sicaklik, "Raspberry Pi °C", "STM32 °C", "MPU9250 °C", "Zaman", "Celcius °C", "Sıcaklık", ref currentX1);
+            InitializeChart(Accel,  "Ax", "Ay", "Az", "Zaman", "m/s^2", "İvmeölçer", ref currentX2);
+            InitializeChart(Gyro, "Gx", "Gy", "Gz", "Zaman", "°Degree/s", "Jiroskop", ref currentX3);
+            InitializeChart(Pusula, "Cx", "Cy", "Cz", "Zaman", "uT (Tesla)", "Pusula", ref currentX4);
 
             if (Ana.Baglanti == true) { MTPB.Enabled = true; }
             else { MTPB.Enabled = false; }
@@ -238,251 +238,106 @@ namespace AUV_UI
             catch (Exception ex) { MessageBox.Show(ex.Message); sistemi_durdur(null, null); }
         }
 
+        private void ControlPanel_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MTPB.Tag.ToString() == "F")
+            {
+                sistemi_durdur(sender, e);
+            }
+        }
+
+        private void ChartIslem(Chart grafik, float? a, float? b, float? c, ref int current)
+        {
+            if (a != null) { grafik.Series[0].Points.AddXY(current, a); }
+            if (b != null) { grafik.Series[1].Points.AddXY(current, b); }
+            if (c != null) { grafik.Series[2].Points.AddXY(current, c); }
+            current += 1;
+            grafik.ChartAreas[0].AxisY.Maximum = Double.NaN;
+            grafik.ChartAreas[0].AxisY.Minimum = Double.NaN;
+            grafik.ChartAreas[0].RecalculateAxesScale();
+            if (current <= 100)
+            {
+                grafik.ChartAreas[0].AxisX.Minimum = 0;
+                grafik.ChartAreas[0].AxisX.Maximum = 100;
+                grafik.ChartAreas[0].AxisX.CustomLabels.Clear();
+                for (int i = 0; i <= 100; i += 10)
+                {
+                    grafik.ChartAreas[0].AxisX.CustomLabels.Add(i - 0.5, i + 0.5, (100 - i).ToString());
+                }
+            }
+            else
+            {
+                grafik.ChartAreas[0].AxisX.Minimum = current - 100;
+                grafik.ChartAreas[0].AxisX.Maximum = current;
+                grafik.ChartAreas[0].AxisX.CustomLabels.Clear();
+                for (int i = 0; i <= 100; i += 10)
+                {
+                    double labelPosition = current - 100 + i;
+                    grafik.ChartAreas[0].AxisX.CustomLabels.Add(labelPosition - 0.5, labelPosition + 0.5, (100 - i).ToString());
+                }
+            }
+
+            for (int i = 0; i < grafik.Series.Count; i++)
+            {
+                while (grafik.Series[i].Points.Count > 0 &&
+                       grafik.Series[i].Points[0].XValue < current - 100)
+                {
+                    grafik.Series[i].Points.RemoveAt(0);
+                }
+            }
+        }
+
         private async Task ChartDegerGuncelleme(CancellationToken cancellationToken)
         {
             while (!cancellationToken.IsCancellationRequested)
             {
                 Invoke(new Action(() =>
                 {
-                    if (TelemTemp[9] != null) { sicaklik.Series[0].Points.AddXY(currentX1, TelemTemp[9]); }
-                    if (TelemTemp[10] != null) { sicaklik.Series[1].Points.AddXY(currentX1, TelemTemp[10]); }
-                    if (TelemTemp[11] != null) { sicaklik.Series[2].Points.AddXY(currentX1, TelemTemp[11]); }
-                    currentX1 += 1;
-
-                    sicaklik.ChartAreas[0].AxisY.Maximum = Double.NaN;
-                    sicaklik.ChartAreas[0].AxisY.Minimum = Double.NaN;
-                    sicaklik.ChartAreas[0].RecalculateAxesScale();
-
-                    sicaklik.ChartAreas[0].AxisX.Minimum = Math.Max(0, currentX1 - 30); // Başlangıç
-                    sicaklik.ChartAreas[0].AxisX.Maximum = Math.Max(30, currentX1);     // Bitiş
-
-                    for (int i = 0; i < sicaklik.Series.Count; i++)
-                    {
-                        while (sicaklik.Series[i].Points.Count > 0 &&
-                               sicaklik.Series[i].Points[0].XValue < currentX1 - 30)
-                        {
-                            sicaklik.Series[i].Points.RemoveAt(0);
-                        }
-                    }
-
-                    if (TelemTemp[0] != null) { Accel.Series[0].Points.AddXY(currentX2, TelemTemp[0]); }
-                    if (TelemTemp[1] != null) { Accel.Series[1].Points.AddXY(currentX2, TelemTemp[1]); }
-                    if (TelemTemp[2] != null) { Accel.Series[2].Points.AddXY(currentX2, TelemTemp[2]); }
-                    currentX2 += 1;
-
-                    Accel.ChartAreas[0].AxisY.Maximum = Double.NaN;
-                    Accel.ChartAreas[0].AxisY.Minimum = Double.NaN;
-                    Accel.ChartAreas[0].RecalculateAxesScale();
-
-                    Accel.ChartAreas[0].AxisX.Minimum = Math.Max(0, currentX2 - 30); // Başlangıç
-                    Accel.ChartAreas[0].AxisX.Maximum = Math.Max(30, currentX2);     // Bitiş
-
-
-                    for (int i = 0; i < sicaklik.Series.Count; i++)
-                    {
-                        while (Accel.Series[i].Points.Count > 0 &&
-                               Accel.Series[i].Points[0].XValue < currentX2 - 30)
-                        {
-                            Accel.Series[i].Points.RemoveAt(0);
-                        }
-                    }
-
-                    if (TelemTemp[3] != null) { Gyro.Series[0].Points.AddXY(currentX3, TelemTemp[3]); }
-                    if (TelemTemp[4] != null) { Gyro.Series[1].Points.AddXY(currentX3, TelemTemp[4]); }
-                    if (TelemTemp[5] != null) { Gyro.Series[2].Points.AddXY(currentX3, TelemTemp[5]); }
-                    currentX3 += 1;
-
-                    Gyro.ChartAreas[0].AxisY.Maximum = Double.NaN;
-                    Gyro.ChartAreas[0].AxisY.Minimum = Double.NaN;
-                    Gyro.ChartAreas[0].RecalculateAxesScale();
-
-                    Gyro.ChartAreas[0].AxisX.Minimum = Math.Max(0, currentX3 - 30); // Başlangıç
-                    Gyro.ChartAreas[0].AxisX.Maximum = Math.Max(30, currentX3);     // Bitiş
-
-
-                    for (int i = 0; i < Gyro.Series.Count; i++)
-                    {
-                        while (Gyro.Series[i].Points.Count > 0 &&
-                               Gyro.Series[i].Points[0].XValue < currentX3 - 30)
-                        {
-                            Gyro.Series[i].Points.RemoveAt(0);
-                        }
-                    }
-
-                    if (TelemTemp[6] != null) { Pusula.Series[0].Points.AddXY(currentX4, TelemTemp[6]); }
-                    if (TelemTemp[7] != null) { Pusula.Series[1].Points.AddXY(currentX4, TelemTemp[7]); }
-                    if (TelemTemp[8] != null) { Pusula.Series[2].Points.AddXY(currentX4, TelemTemp[8]); }
-                    currentX4 += 1;
-
-                    Pusula.ChartAreas[0].AxisY.Maximum = Double.NaN;
-                    Pusula.ChartAreas[0].AxisY.Minimum = Double.NaN;
-                    Pusula.ChartAreas[0].RecalculateAxesScale();
-
-                    Pusula.ChartAreas[0].AxisX.Minimum = Math.Max(0, currentX3 - 30); // Başlangıç
-                    Pusula.ChartAreas[0].AxisX.Maximum = Math.Max(30, currentX3);     // Bitiş
-
-                    for (int i = 0; i < Pusula.Series.Count; i++)
-                    {
-                        while (Pusula.Series[i].Points.Count > 0 &&
-                               Pusula.Series[i].Points[0].XValue < currentX4 - 30)
-                        {
-                            Pusula.Series[i].Points.RemoveAt(0);
-                        }
-                    }
+                    ChartIslem(sicaklik, TelemTemp[9], TelemTemp[10], TelemTemp[11], ref currentX1);
+                    ChartIslem(Accel, TelemTemp[0], TelemTemp[1], TelemTemp[2], ref currentX2);
+                    ChartIslem(Gyro, TelemTemp[3], TelemTemp[4], TelemTemp[5], ref currentX3);
+                    ChartIslem(Pusula, TelemTemp[6], TelemTemp[7], TelemTemp[8], ref currentX4);
                 }));
                 await Task.Delay(10);
             }
         }
 
-        private void InitializeChartTemp()
+        private void InitializeChart(Chart grafik, string a, string b, string c, string d, string e, string f, ref int Current)
         {
-            sicaklik.Series.Clear();
+            grafik.Series.Clear();
 
-            Series series1 = new Series("Raspberry Pi °C");
+            Series series1 = new Series(a);
             series1.ChartType = SeriesChartType.Line;
             series1.BorderWidth = 2;
             series1.Color = System.Drawing.Color.Red;
-            sicaklik.Series.Add(series1);
+            grafik.Series.Add(series1);
 
-            Series series2 = new Series("STM32 °C");
+            Series series2 = new Series(b);
             series2.ChartType = SeriesChartType.Line;
             series2.BorderWidth = 2;
             series2.Color = System.Drawing.Color.Blue;
-            sicaklik.Series.Add(series2);
+            grafik.Series.Add(series2);
 
-            Series series3 = new Series("MPU9250 °C");
+            Series series3 = new Series(c);
             series3.ChartType = SeriesChartType.Line;
             series3.BorderWidth = 2;
             series3.Color = System.Drawing.Color.Green;
-            sicaklik.Series.Add(series3);
+            grafik.Series.Add(series3);
 
-            sicaklik.ChartAreas[0].AxisX.Title = "Zaman (saniye)";
-            sicaklik.ChartAreas[0].AxisY.Title = "Celcius";
+            grafik.ChartAreas[0].AxisX.Title = d;
+            grafik.ChartAreas[0].AxisY.Title = e;
 
-            sicaklik.ChartAreas[0].AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            sicaklik.ChartAreas[0].AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            grafik.ChartAreas[0].AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            grafik.ChartAreas[0].AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
 
-            sicaklik.ChartAreas[0].AxisX.Interval = 10;
-            sicaklik.ChartAreas[0].AxisX.Minimum = 0;
-            sicaklik.ChartAreas[0].AxisX.Maximum = 30;
-            sicaklik.Titles.Clear();
-            sicaklik.Titles.Add("Pi MPU STM °C");
-            currentX1 = 0;
+            grafik.ChartAreas[0].AxisX.Interval = 10;
+            grafik.ChartAreas[0].AxisX.Minimum = 0;
+            grafik.ChartAreas[0].AxisX.Maximum = 100;
+            grafik.Titles.Clear();
+            grafik.Titles.Add(f);
+            Current = 0;
         }
 
-        private void InitializeChartGyro()
-        {
-            Gyro.Series.Clear();
-
-            Series series1 = new Series("Gx");
-            series1.ChartType = SeriesChartType.Line;
-            series1.BorderWidth = 2;
-            series1.Color = System.Drawing.Color.Red;
-            Gyro.Series.Add(series1);
-
-            Series series2 = new Series("Gy");
-            series2.ChartType = SeriesChartType.Line;
-            series2.BorderWidth = 2;
-            series2.Color = System.Drawing.Color.Blue;
-            Gyro.Series.Add(series2);
-
-            Series series3 = new Series("Gz");
-            series3.ChartType = SeriesChartType.Line;
-            series3.BorderWidth = 2;
-            series3.Color = System.Drawing.Color.Green;
-            Gyro.Series.Add(series3);
-
-            Gyro.ChartAreas[0].AxisX.Title = "Zaman (saniye)";
-            Gyro.ChartAreas[0].AxisY.Title = "°Derece/s";
-
-            Gyro.ChartAreas[0].AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            Gyro.ChartAreas[0].AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-
-            Gyro.ChartAreas[0].AxisX.Interval = 10; // X ekseninde aralıklar 10 birim
-            Gyro.ChartAreas[0].AxisX.Minimum = 0;  // X ekseninin başlangıcı
-            Gyro.ChartAreas[0].AxisX.Maximum = 30; // X ekseninin sonu
-
-            Gyro.Titles.Clear();
-            Gyro.Titles.Add("Gyro °Derece/s");
-
-            currentX3 = 0;
-        }
-
-        private void InitializeChartAccel()
-        {
-            Accel.Series.Clear();
-
-            Series series1 = new Series("Ax");
-            series1.ChartType = SeriesChartType.Line;
-            series1.BorderWidth = 2;
-            series1.Color = System.Drawing.Color.Red;
-            Accel.Series.Add(series1);
-
-            Series series2 = new Series("Ay");
-            series2.ChartType = SeriesChartType.Line;
-            series2.BorderWidth = 2;
-            series2.Color = System.Drawing.Color.Blue;
-            Accel.Series.Add(series2);
-
-            Series series3 = new Series("Az");
-            series3.ChartType = SeriesChartType.Line;
-            series3.BorderWidth = 2;
-            series3.Color = System.Drawing.Color.Green;
-            Accel.Series.Add(series3);
-
-            Accel.ChartAreas[0].AxisX.Title = "Zaman (saniye)";
-            Accel.ChartAreas[0].AxisY.Title = "m/s";
-
-            Accel.ChartAreas[0].AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            Accel.ChartAreas[0].AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-
-            Accel.ChartAreas[0].AxisX.Interval = 10;
-            Accel.ChartAreas[0].AxisX.Minimum = 0;
-            Accel.ChartAreas[0].AxisX.Maximum = 30;
-
-            Accel.Titles.Clear();
-            Accel.Titles.Add("Accel m/s");
-
-            currentX2 = 0;
-        }
-
-        private void InitializeChartCompass()
-        {
-            Pusula.Series.Clear();
-
-            Series series1 = new Series("Cx");
-            series1.ChartType = SeriesChartType.Line;
-            series1.BorderWidth = 2;
-            series1.Color = System.Drawing.Color.Red;
-            Pusula.Series.Add(series1);
-
-            Series series2 = new Series("Cy");
-            series2.ChartType = SeriesChartType.Line;
-            series2.BorderWidth = 2;
-            series2.Color = System.Drawing.Color.Blue;
-            Pusula.Series.Add(series2);
-
-            Series series3 = new Series("Cz");
-            series3.ChartType = SeriesChartType.Line;
-            series3.BorderWidth = 2;
-            series3.Color = System.Drawing.Color.Green;
-            Pusula.Series.Add(series3);
-
-            Pusula.ChartAreas[0].AxisX.Title = "Zaman (saniye)";
-            Pusula.ChartAreas[0].AxisY.Title = "uT";
-
-            Pusula.ChartAreas[0].AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            Pusula.ChartAreas[0].AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-
-            Pusula.ChartAreas[0].AxisX.Interval = 10; // X ekseninde aralıklar 10 birim
-            Pusula.ChartAreas[0].AxisX.Minimum = 0;  // X ekseninin başlangıcı
-            Pusula.ChartAreas[0].AxisX.Maximum = 30; // X ekseninin sonu
-
-            Pusula.Titles.Clear();
-            Pusula.Titles.Add("Pusula");
-
-            currentX4 = 0;
-        }
         private void trackBar12_Scroll(object sender, EventArgs e)
         {
             degeratama();

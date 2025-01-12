@@ -414,7 +414,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ClientSize = new System.Drawing.Size(870, 459);
+            this.ClientSize = new System.Drawing.Size(872, 459);
             this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox11);

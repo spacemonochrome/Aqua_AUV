@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Renci.SshNet;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AUV_UI
 {
@@ -35,6 +36,11 @@ namespace AUV_UI
         public ControlPanel kontrol_formu;
         public bool devamlilik_Sensor = false;
         public bool Baglanti = false;
+
+
+        private string currentPath = "/home/pi/Desktop"; // Başlangıç dizini
+        public string SelectedFilePath { get; private set; } // Seçilen dosya yolu
+
         public AnaForm()
         {
             InitializeComponent();
@@ -307,6 +313,16 @@ namespace AUV_UI
             {
                 MessageBox.Show("Bağlantı açılamadı: " + ex.Message);
             }
+        }
+       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }        
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
