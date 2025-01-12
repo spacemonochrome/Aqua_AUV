@@ -74,7 +74,7 @@ def sicaklik_oku_vcgencmd():
                 try:
                         sonuc = subprocess.check_output(["vcgencmd", "measure_temp"]).decode("utf-8")
                         telemetri[9] = float(sonuc.split("=")[1].split("'")[0])
-                        time.sleep(0.1)
+                        time.sleep(0.01)
                 except FileNotFoundError:
                         print("vcgencmd bulunamadi")
                 
@@ -143,29 +143,38 @@ def convert_temp_raw_to_celsius(raw_value):
 def sensor_task():
         global dogrulamabyti, durmasarti, TxSpwm, Spwm, TxMotorverisi, MotorDeger, TxData, RxData, telemetri
         while True:
-                accel_x, accel_y, accel_z, temp_raw, gyro_x, gyro_y, gyro_z = read_accel_gyro_temp()
+                try:
+                        accel_x, accel_y, accel_z, temp_raw, gyro_x, gyro_y, gyro_z = read_accel_gyro_temp()
+                        telemetri[0] = accel_x_ms2 = convert_accel_raw_to_ms2(accel_x)
+                        telemetri[1] = accel_y_ms2 = convert_accel_raw_to_ms2(accel_y)
+                        telemetri[2] = accel_z_ms2 = convert_accel_raw_to_ms2(accel_z)
+                        telemetri[3] = gyro_x_dps = convert_gyro_raw_to_dps(gyro_x)
+                        telemetri[4] = gyro_y_dps = convert_gyro_raw_to_dps(gyro_y)
+                        telemetri[5] = gyro_z_dps = convert_gyro_raw_to_dps(gyro_z)
+                        telemetri[11] = temperature_c = convert_temp_raw_to_celsius(temp_raw)
+                        time.sleep(0.01)
+                except:
+                        pass
+
                 TxData = [dogrulamabyti] + TxMotorverisi + [dogrulamabyti] + TxSpwm + [dogrulamabyti]
-                ser.write(TxData)
-                telemetri[0] = accel_x_ms2 = convert_accel_raw_to_ms2(accel_x)
-                telemetri[1] = accel_y_ms2 = convert_accel_raw_to_ms2(accel_y)
-                telemetri[2] = accel_z_ms2 = convert_accel_raw_to_ms2(accel_z)
-                telemetri[3] = gyro_x_dps = convert_gyro_raw_to_dps(gyro_x)
-                telemetri[4] = gyro_y_dps = convert_gyro_raw_to_dps(gyro_y)
-                telemetri[5] = gyro_z_dps = convert_gyro_raw_to_dps(gyro_z)
-                telemetri[11] = temperature_c = convert_temp_raw_to_celsius(temp_raw)
-                #print("-" * 40)
-                print(", ".join(map(str, telemetri)))
-                #print("Giden Veri " + str(TxData) + " \n " + "Gelen veri " + str(RxData) + " \n")
-                #print(f"Ivme (m/s^2): X={accel_x_ms2:.2f}, Y={accel_y_ms2:.2f}, Z={accel_z_ms2:.2f}")
-                #print(f"Jiroskop (dps): X={gyro_x_dps:.2f}, Y={gyro_y_dps:.2f}, Z={gyro_z_dps:.2f}")
-                #print(f"Sicaklik (°C): {temperature_c:.2f}")
-                #print("-" * 40)
-                time.sleep(0.02)
+                try:
+                        ser.write(TxData)
+                except:
+                        pass
+
+                #os.system("clear")
+                print(",".join(map(str, telemetri)) + "," + ",".join(map(str, TxData)))
+                
+
+                time.sleep(0.010)
 
 if __name__ == '__main__':
         durmasarti = True
         os.chdir("Belirsiz_Adres")
-        initialize_mpu9250()
+        try:
+                initialize_mpu9250()
+        except:
+                pass
         t1 = threading.Thread(target = MotorValueUpdate)
         t2 = threading.Thread(target = MotorDegerUpdate)
         t4 = threading.Thread(target = TelemetriKaydet)

@@ -1,0 +1,30 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Variant [[No Variations]] of Project [AUV_PDB_DIP_STM8.PrjPcb]
+   Generated File[DIP.GTO]
+   Generated File[DIP.GTP]
+   Generated File[DIP.GTS]
+   Generated File[DIP.GTL]
+   Generated File[DIP.GBL]
+   Generated File[DIP.GBS]
+   Generated File[DIP.GBP]
+   Generated File[DIP.GBO]
+   Generated File[DIP.GM1]
+   Generated File[DIP.GM13]
+   Generated File[DIP.GM15]
+   Generated File[DIP.GKO]
+   Generated File[DIP.GPT]
+   Generated File[DIP.GPB]
+   Generated File[DIP.1]
+   Generated File[DIP.GML]
+   Generated File[DIP.GD1]
+   Generated File[DIP.GG1]
+   Generated File[DIP.GM]
+   Generated File[DIP.EXTREP]
+   Generated File[DIP.REP]
+
+
+Files Generated   : 21
+Documents Printed : 0
+
+Finished Output Generation At 17:16:11 On 11.01.2025

@@ -92,7 +92,8 @@ namespace AUV_UI
                     baglan.Enabled = false;
                     Dosya_Yolu_Degistir.Enabled = true;
 
-                    shell_Baglan();
+                    try{shell_Baglan();}
+                    catch (Exception ex) { MessageBox.Show(ex.Message); }
                 }
                 else
                 {
@@ -114,47 +115,44 @@ namespace AUV_UI
 
         private async void shell_Baglan()
         {
-            try
+            string output;
+            await Task.Run(() =>
             {
-                string output;
-                await Task.Run(() =>
+                while (RaspiSSHClient != null)
                 {
-                    while (RaspiSSHClient != null)
+                    output = shellStream.ReadLine() + "\n";
+                    if (!string.IsNullOrEmpty(output))
                     {
-                        output = shellStream.ReadLine() + "\n";
-                        if (!string.IsNullOrEmpty(output))
+                        Invoke(new Action(() =>
                         {
-                            Invoke(new Action(() =>
+                            Match match;
+                            match = Regex.Match(output, @"C(\d+)C");
+                            if (match.Success)
                             {
-                                Match match;
-                                match = Regex.Match(output, @"C(\d+)C");
-                                if (match.Success)
-                                {
-                                    terminal.AppendText(Environment.NewLine + "islem kodu " + match.Groups[1].Value + Environment.NewLine);
-                                    currentProcessId = match.Groups[1].Value;
-                                    islemi_Durdur.Enabled = true;
-                                    komutu_calistir.Enabled = false;
-                                    ControlPanelButton.Enabled = false;
-                                }
+                                terminal.AppendText(Environment.NewLine + "islem kodu " + match.Groups[1].Value + Environment.NewLine);
+                                currentProcessId = match.Groups[1].Value;
+                                islemi_Durdur.Enabled = true;
+                                komutu_calistir.Enabled = false;
+                                ControlPanelButton.Enabled = false;
+                                label5.Text = "İşlem ID: " + currentProcessId;
+                            }
 
-                                int startIndex = output.IndexOf("Done");
-                                if (startIndex != -1)
-                                {
-                                    islemi_Durdur.Enabled = false;
-                                    komutu_calistir.Enabled = true;
-                                    ControlPanelButton.Enabled = true;
-                                    terminal.AppendText(Environment.NewLine + "İşlem Bitti" + Environment.NewLine);
-                                }
+                            int startIndex = output.IndexOf("Done");
+                            if (startIndex != -1)
+                            {
+                                islemi_Durdur.Enabled = false;
+                                komutu_calistir.Enabled = true;
+                                ControlPanelButton.Enabled = true;
+                                terminal.AppendText(Environment.NewLine + "İşlem Bitti" + Environment.NewLine);
+                                label5.Text = "İşlem ID: ";
+                            }
 
+                            terminal.AppendText(output + Environment.NewLine);
 
-                                terminal.AppendText(output + Environment.NewLine);
-                                
-                            }));
-                        }
+                        }));
                     }
-                });
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+                }
+            });            
         }
 
         private void baglantiyi_kes_Click(object sender, EventArgs e)
@@ -253,7 +251,7 @@ namespace AUV_UI
             try
             {
                 ControlPanelButton.Enabled = false;
-                shellStream.WriteLine(komut_satiri.Text + " & echo C$!C; wait $!"); 
+                shellStream.WriteLine(komut_satiri.Text + " & echo C$!C; wait $!");
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }            
         }
@@ -268,6 +266,7 @@ namespace AUV_UI
                 komutu_calistir.Enabled = true;
                 ControlPanelButton.Enabled = true;
                 currentProcessId = null;
+                label5.Text = "İşlem ID: ";
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }            
         }
@@ -294,7 +293,7 @@ namespace AUV_UI
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            string url = "https://github.com/spacemonochrome/AUV_RBPI_STM32";
+            string url = "https://github.com/spacemonochrome/Aqua_AUV";
 
             try
             {
