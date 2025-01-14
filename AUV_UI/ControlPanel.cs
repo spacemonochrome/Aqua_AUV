@@ -98,9 +98,9 @@ namespace AUV_UI
                     Ana.terminal.Text += "TestMotorSayisalRT.txt" + " dosyası;" + Environment.NewLine + Ana.raspi_dosya_yolu_Gonder + " adresine yüklendi" + Environment.NewLine;
                 }
 
-                string Telemetri = Properties.Resources.Telem.Replace("Belirsiz_Adres", Ana.raspi_dosya_yolu_Gonder);
-                byte[] telem = Encoding.UTF8.GetBytes(Telemetri);
-                using (var memoryStream = new MemoryStream(telem))
+                string telemetriText = Encoding.UTF8.GetString(Properties.Resources.Telem).Replace("Belirsiz_Adres", Ana.raspi_dosya_yolu_Gonder);
+                byte[] Telemetri = Encoding.UTF8.GetBytes(telemetriText);
+                using (var memoryStream = new MemoryStream(Telemetri))
                 {
                     Ana.RaspiSFTPClient.ChangeDirectory(Ana.raspi_dosya_yolu_Gonder);
                     Ana.RaspiSFTPClient.UploadFile(memoryStream, Path.GetFileName("Telem.py"));

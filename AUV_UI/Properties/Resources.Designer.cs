@@ -361,37 +361,12 @@ namespace AUV_UI.Properties {
         }
         
         /// <summary>
-        ///   import time
-        ///import os
-        ///import threading
-        ///import serial
-        ///import smbus
-        ///import subprocess
-        ///
-        ///MPU9250_ADDRESS = 0x68
-        ///
-        ///# MPU9250 register adresleri
-        ///PWR_MGMT_1 = 0x6B
-        ///ACCEL_XOUT_H = 0x3B
-        ///GYRO_XOUT_H = 0x43
-        ///ACCEL_CONFIG = 0x1C
-        ///GYRO_CONFIG = 0x1B
-        ///TEMP_OUT_H = 0x41
-        ///
-        ///bus = smbus.SMBus(1)
-        ///
-        ///dogrulamabyti = 95
-        ///durmasarti = False
-        ///TxSpwm = [125,125,125,125]
-        ///Spwm = [125,125,125,125]
-        ///TxMotorverisi = [125,125,125,125,125,125,125,125]
-        ///MotorDeger = [125,125,125,125,125,125,125,125]
-        ///TxData = [None]
-        ///RxData = [dizenin kalan bölümü kesildi]&quot;; benzeri yerelleştirilmiş bir dize arar.
+        ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        public static string Telem {
+        public static byte[] Telem {
             get {
-                return ResourceManager.GetString("Telem", resourceCulture);
+                object obj = ResourceManager.GetObject("Telem", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

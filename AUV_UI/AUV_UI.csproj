@@ -108,7 +108,7 @@
       <DependentUpon>MotorConfigurationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -198,12 +198,12 @@
     <None Include="img\github.png" />
     <None Include="img\sauvc.png" />
     <None Include="img\daftpunktocat-guy.gif" />
-    <None Include="Motor_Testi_RT\Telem.txt" />
     <None Include="img\Homeland.PNG" />
     <None Include="img\MYS_LogoB.png" />
     <None Include="img\mys_black_logo.png" />
     <Content Include="icoo.ico" />
     <Content Include="ikon.ico" />
+    <None Include="Motor_Testi_RT\Telem.py" />
     <Content Include="MYS_LogoB.ico" />
     <Content Include="MYS_Logooicon.ico" />
   </ItemGroup>

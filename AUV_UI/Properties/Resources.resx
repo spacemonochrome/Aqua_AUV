@@ -148,9 +148,6 @@
   <data name="MYS_LogoB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\MYS_LogoB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Telem" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Motor_Testi_RT\Telem.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
   <data name="C_Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\C_Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -225,5 +222,8 @@
   </data>
   <data name="mys_black_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\mys_black_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Telem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Motor_Testi_RT\Telem.py;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
